@@ -2,33 +2,55 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>MIVO — À propos</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
+
 <body>
 
-<header>
+<header class="header">
   <div class="wrap">
-    <div class="logo"><img src="logo-mivo.png"><h1>MIVO</h1></div>
+    <div class="logo">
+      <img src="logo-mivo.png" alt="Logo MIVO">
+      <div class="brand">
+        <h1>MIVO</h1>
+        <p>Parler, c’est déjà guérir.</p>
+      </div>
+    </div>
+
     <nav class="nav">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
       <a href="services.html">Services</a>
-      <a href="equipe.html">Équipe</a>
+      <a href="signalement.html">Signalement</a>
       <a href="contact.html">Contact</a>
+      <a href="don.html" class="don">Faire un don</a>
     </nav>
+
+    <button id="modeSwitch">🌙 Mode sombre</button>
   </div>
 </header>
 
 <main class="container">
   <section class="section">
     <h2>Qui sommes-nous ?</h2>
-    <p>MIVO est une association d’aide pour les victimes de harcèlement et de cyberharcèlement.</p>
-    <p>Notre mission : écouter, accompagner, protéger et redonner confiance.</p>
+
+    <p>
+      MIVO est née d’un constat simple : trop de jeunes subissent du harcèlement, en ligne
+      ou dans la vie réelle, et ne trouvent pas d’espace sûr pour en parler. 
+    </p>
+
+    <p>
+      Nous avons créé MIVO pour offrir une écoute gratuite, un espace d’expression,
+      et un accompagnement bienveillant aux victimes.
+    </p>
   </section>
 </main>
 
-<footer>© 2025 MIVO</footer>
+<footer>
+  <div class="container">© 2025 MIVO</div>
+</footer>
 </body>
 </html>
