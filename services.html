@@ -1,39 +1,53 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
   <title>MIVO — Services</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
+
 <body>
 
-<header>
+<header class="header">
   <div class="wrap">
-    <div class="logo"><img src="logo-mivo.png"><h1>MIVO</h1></div>
+    <div class="logo">
+      <img src="logo-mivo.png" alt="Logo MIVO">
+      <div class="brand">
+        <h1>MIVO</h1>
+        <p>Parler, c’est déjà guérir.</p>
+      </div>
+    </div>
+
     <nav class="nav">
       <a href="index.html">Accueil</a>
       <a href="apropos.html">À propos</a>
       <a href="services.html">Services</a>
-      <a href="equipe.html">Équipe</a>
+      <a href="signalement.html">Signalement</a>
       <a href="contact.html">Contact</a>
+      <a href="don.html" class="don">Faire un don</a>
     </nav>
+
+    <button id="modeSwitch">🌙 Mode sombre</button>
   </div>
 </header>
 
 <main class="container">
   <section class="section">
     <h2>Nos services</h2>
+
     <ul>
-      <li>Écoute anonyme</li>
-      <li>Conseils cyberharcèlement</li>
-      <li>Orientation psychologique</li>
-      <li>Équithérapie gratuite</li>
-      <li>Prévention & sensibilisation</li>
+      <li>Écoute gratuite par des bénévoles formés</li>
+      <li>Accompagnement pour victimes de harcèlement</li>
+      <li>Aide en cas de cyberharcèlement</li>
+      <li>Orientation vers des professionnels si nécessaire</li>
     </ul>
   </section>
 </main>
 
-<footer>© 2025 MIVO</footer>
+<footer>
+  <div class="container">© 2025 MIVO</div>
+</footer>
 </body>
 </html>
