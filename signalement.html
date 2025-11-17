@@ -5,7 +5,7 @@
   <title>MIVO — Signalement</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-  <script defer src="script.js"></script>
+  <script defer src="signalement.js"></script>
 </head>
 
 <body>
@@ -43,22 +43,22 @@
       remplis ce formulaire. Nous te répondrons rapidement et en toute confidentialité.
     </p>
 
-    <form action="https://formspree.io/f/mzbldwbg" method="POST" class="form">
+    <form id="signalementForm" class="form">
 
       <label for="nom">Nom :</label>
-      <input type="text" id="nom" name="Nom" required>
+      <input type="text" id="nom" name="nom" required>
 
       <label for="prenom">Prénom :</label>
-      <input type="text" id="prenom" name="Prenom" required>
+      <input type="text" id="prenom" name="prenom" required>
 
       <label for="email">Adresse mail :</label>
-      <input type="email" id="email" name="Email" required>
+      <input type="email" id="email" name="email" required>
 
       <label for="telephone">Numéro de téléphone :</label>
-      <input type="tel" id="telephone" name="Téléphone" required>
+      <input type="tel" id="telephone" name="telephone" required>
 
       <label for="raison">Raison du signalement :</label>
-      <select id="raison" name="Raison" required>
+      <select id="raison" name="raison" required>
         <option value="">Choisir une raison</option>
         <option value="Harcèlement scolaire">Harcèlement scolaire</option>
         <option value="Cyberharcèlement">Cyberharcèlement</option>
@@ -69,7 +69,7 @@
       </select>
 
       <label for="message">Explique la situation :</label>
-      <textarea id="message" name="Message" required></textarea>
+      <textarea id="message" name="message" required></textarea>
 
       <button type="submit" class="btn-big">Envoyer</button>
     </form>
