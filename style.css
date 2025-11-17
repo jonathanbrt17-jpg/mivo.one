@@ -73,3 +73,43 @@ p {
     color: #333;
     font-size: 15px;
 }
+
+/* ====== BOUTON TIKTOK ====== */
+
+.tiktok-button {
+    background: #000;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.tiktok-button img {
+    height: 26px;
+}
+
+.tiktok-button:hover {
+    transform: scale(1.05);
+    opacity: 0.85;
+}
+
+/* BOUTON EMAIL */
+.btn-small {
+    background: #3f68ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-small:hover {
+    background: #2d4cc2;
+}
