@@ -1,10 +1,17 @@
+/* ========================
+   STYLE GLOBAL
+======================== */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #f3f4f8;
 }
 
-/* HEADER */
+/* ========================
+   HEADER
+======================== */
+
 .header {
     background: linear-gradient(90deg, #3f68ff, #3552cc);
     color: white;
@@ -32,7 +39,10 @@ body {
     opacity: 0.9;
 }
 
-/* NAVIGATION */
+/* ========================
+   NAVIGATION
+======================== */
+
 nav {
     margin-left: auto;
 }
@@ -42,14 +52,32 @@ nav a {
     margin-left: 20px;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 nav a:hover {
     text-decoration: underline;
 }
 
-/* CONTENU */
-.content {
+/* ===== Bouton URGENCE dans le menu ===== */
+
+.urgence {
+    background: #ff3b3b;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.urgence:hover {
+    background: #d62828;
+}
+
+/* ========================
+   CONTENU
+======================== */
+
+.content, .container {
     padding: 30px;
 }
 
@@ -64,8 +92,11 @@ p {
     line-height: 1.6;
 }
 
-/* FOOTER */
-.footer {
+/* ========================
+   FOOTER
+======================== */
+
+.footer, footer {
     text-align: center;
     padding: 20px;
     background: #e3e5ef;
@@ -74,7 +105,27 @@ p {
     font-size: 15px;
 }
 
-/* ====== BOUTON TIKTOK ====== */
+/* ========================
+   BOUTON EMAIL
+======================== */
+
+.btn-small {
+    background: #3f68ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.btn-small:hover {
+    background: #2d4cc2;
+}
+
+/* ========================
+   BOUTON TIKTOK
+======================== */
 
 .tiktok-button {
     background: #000;
@@ -99,21 +150,10 @@ p {
     opacity: 0.85;
 }
 
-/* BOUTON EMAIL */
-.btn-small {
-    background: #3f68ff;
-    color: white;
-    padding: 10px 16px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.2s;
-}
+/* ========================
+   URGENCE — BLOCS DE NUMÉROS
+======================== */
 
-.btn-small:hover {
-    background: #2d4cc2;
-}
-/* URGENCE BOXES */
 .urgence-box {
     background: white;
     padding: 20px;
@@ -129,6 +169,7 @@ p {
     color: #3f68ff;
 }
 
+/* Ancien bouton nav-urgent (si utile ailleurs) */
 .nav-urgent {
     background: #ff2d2d;
     padding: 6px 12px;
@@ -139,17 +180,3 @@ p {
 .nav-urgent:hover {
     background: #cc0000;
 }
-/* Bouton URGENCE */
-.urgence {
-    background: #ff3b3b;
-    color: white !important;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.urgence:hover {
-    background: #d62828;
-}
-
-
