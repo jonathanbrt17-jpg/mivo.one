@@ -139,4 +139,17 @@ p {
 .nav-urgent:hover {
     background: #cc0000;
 }
+/* Bouton URGENCE */
+.urgence {
+    background: #ff3b3b;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.urgence:hover {
+    background: #d62828;
+}
+
 
