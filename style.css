@@ -180,3 +180,27 @@ p {
 .nav-urgent:hover {
     background: #cc0000;
 }
+/* --- PAGE INFO --- */
+
+.info-box, .info-section {
+  background: #ffffff15;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.info-box h3, .info-section h3 {
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.info-section ul {
+  padding-left: 20px;
+}
+
+.info-section li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
