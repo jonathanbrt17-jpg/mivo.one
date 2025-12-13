@@ -2,11 +2,11 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIVO</title>
     <link rel="stylesheet" href="style.css">
-</script>
 </head>
+
 <body>
 
 <header class="header">
@@ -22,39 +22,58 @@
         <a href="info.html">Infos</a>
         <a href="services.html">Services</a>
         <a href="contact.html">Contact</a>
-        <a href="don.html">Don</a>     
-
-        <!-- 🔴 Bouton URGENCE ajouté -->
+        <a href="don.html">Don</a>
         <a href="urgence.html" class="urgence">⚠️ Urgence</a>
     </nav>
 </header>
 
 <main class="content">
     <h2>Bienvenue sur MIVO</h2>
-     <p>
-  <br><br> ⚠️ Attention verifiez les informations ⚠️ <br><br>
+
+    <p><strong>⚠️ Attention : vérifiez les informations ⚠️</strong></p>
+
     <p>
-        Bienvenue sur Mivo,
+        Bienvenue sur MIVO,
         <br><br>
-        - Une association pour vous aider, jeunes comme moins jeunes.  
-        La santé mentale n’est pas un jeu, pas plus que le harcèlement ou le cyberharcèlement :  
-        ce sont des réalités qui touchent 12,5 % des 18–80 ans et 13,5 % des 15 ans-18ans.
-        <br><br>
-        - 7 % des jeunes déclarent avoir été victimes de harcèlement ou cyberharcèlement,  
-        soit près de cinq millions d’enfants. Un chiffre qui continue malheureusement d’augmenter.
-        <br><br>
-        - Alors mobilisons-nous pour changer les choses.
+        Une association pour vous aider, jeunes comme moins jeunes.  
+        La santé mentale n’est pas un jeu, pas plus que le harcèlement ou le cyberharcèlement.
     </p>
 
     <p>
         Nous proposons écoute, soutien, signalement accompagné,  
-        et bientôt des services comme l’art-thérapie et l’équithérapie  
-        pour permettre à chacun de s’exprimer autrement.
+        et bientôt des services comme l’art-thérapie et l’équithérapie.
     </p>
 
     <p>
         Vous n’êtes pas seul. MIVO se construit avec vous, pour vous.
     </p>
+
+    <hr>
+
+    <!-- 📨 FORMULAIRE FORMSPREE -->
+    <h2>Nous contacter</h2>
+
+    <form action="https://formspree.io/f/mvgelvkk" method="POST">
+
+        <label for="pseudo">Pseudo :</label><br>
+        <input type="text" id="pseudo" name="pseudo" required><br><br>
+
+        <label for="email">Email :</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+        <!-- RGPD -->
+        <p style="font-size: 0.9em;">
+            En envoyant ce formulaire, vous acceptez que vos données soient utilisées
+            uniquement pour vous répondre.
+        </p>
+
+        <button type="submit">Envoyer</button>
+    </form>
+    <!-- FIN FORMULAIRE -->
+
 </main>
 
 <footer class="footer">
@@ -62,4 +81,4 @@
 </footer>
 
 </body>
-/h<tml>
+</html>
