@@ -203,4 +203,47 @@ p {
   margin-bottom: 8px;
   line-height: 1.6;
 }
+/* ===============================
+   NAVIGATION RESPONSIVE (MOBILE)
+   =============================== */
+
+@media (max-width: 768px) {
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wrap {
+    width: 100%;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .nav a {
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.15);
+    font-size: 15px;
+  }
+
+  .nav a.don {
+    background: #00a8ff;
+    color: white;
+  }
+
+  .nav a.urgence {
+    background: #ff3b3b;
+    color: white;
+  }
+
+  #modeSwitch {
+    margin-top: 10px;
+  }
+}
 
