@@ -125,24 +125,14 @@ p { margin:8px 0; }
 
 .time-box span { font-size:1.5rem; font-weight:bold; }
 
-.discord-btn, .music-btn {
+.discord-btn {
   margin-top:14px;
   padding:12px 22px;
   border-radius:30px;
   font-weight:600;
-  border:none;
-  cursor:pointer;
-}
-
-.discord-btn {
   background:#5865F2;
   color:#fff;
   text-decoration:none;
-}
-
-.music-btn {
-  background:rgba(255,255,255,.3);
-  color:#fff;
 }
 
 #finalMessage {
@@ -204,19 +194,16 @@ p { margin:8px 0; }
     Dès demain, votre site sera disponible 🎁
   </div>
 
-  <a class="discord-btn" href="https://discord.gg/gwxEBGTG2P" target="_blank">🎁 Discord</a><br>
-  <button class="music-btn" id="musicBtn">🎵 Musique</button>
+  <a class="discord-btn" href="https://discord.gg/gwxEBGTG2P" target="_blank">
+    🎁 Discord Mivo
+  </a>
 </div>
-
-<audio id="bgMusic" loop>
-  <source src="christmas.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 /* 🎄 Date */
 const targetDate = new Date(2025,11,25,0,0,0).getTime();
 
-/* ⏰ Jour / Nuit */
+/* 🌞 / 🌙 Jour Nuit auto */
 const hour = new Date().getHours();
 document.body.classList.add(hour >= 8 && hour < 18 ? "day" : "night");
 
@@ -234,7 +221,8 @@ function update(){
   minutes.textContent=Math.floor((d%3600000)/60000);
   seconds.textContent=Math.floor((d%60000)/1000);
 }
-setInterval(update,1000); update();
+setInterval(update,1000);
+update();
 
 /* 🎆 Feu d’artifice */
 function fireworks(){
@@ -247,15 +235,6 @@ function fireworks(){
     setTimeout(()=>f.remove(),1200);
   }
 }
-
-/* 🎵 Musique */
-const music=document.getElementById("bgMusic");
-const btn=document.getElementById("musicBtn");
-music.volume=0.3;
-btn.onclick=()=>{
-  if(music.paused){ music.play(); btn.textContent="⏸️ Pause"; }
-  else { music.pause(); btn.textContent="🎵 Musique"; }
-};
 </script>
 </body>
 </html>
