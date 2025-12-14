@@ -6,9 +6,7 @@
 <title>Mivo — Noël</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin:0;
@@ -31,7 +29,7 @@ body.night {
   background:linear-gradient(135deg,#3a0000,#052e1c);
 }
 
-/* ❄️ Neige + ⭐ étoiles */
+/* ❄️ Neige + ⭐ Étoiles */
 .snow, .stars {
   position:fixed;
   inset:0;
@@ -68,7 +66,7 @@ body.night .stars { opacity:1; }
   50% {opacity:1}
 }
 
-/* 🎅 Père Noël (plus léger pour mobile) */
+/* 🎅 Père Noël */
 .santa {
   position:fixed;
   top:12%;
@@ -93,19 +91,25 @@ body.night .stars { opacity:1; }
   animation:fadeIn 1s ease-in-out;
 }
 
+/* 🟢 LOGO MIVO */
 .logo {
-  width:95px;
-  height:95px;
+  width:110px;
+  height:110px;
   margin:0 auto 14px;
   border-radius:50%;
   background:rgba(255,255,255,.25);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:1.4rem;
-  font-weight:bold;
 }
 
+.logo img {
+  width:70%;
+  height:70%;
+  object-fit:contain;
+}
+
+/* 📝 Texte */
 h1 {
   font-size:2.1rem;
   margin-bottom:6px;
@@ -181,9 +185,10 @@ p {
 /* 📱 Mobile */
 @media (max-width:480px){
   h1 { font-size:1.8rem; }
-  .logo { width:80px; height:80px; font-size:1.2rem; }
+  .logo { width:90px; height:90px; }
   .santa { font-size:2rem; }
 }
+
 @keyframes fadeIn {
   from {opacity:0; transform:translateY(12px)}
   to {opacity:1; transform:translateY(0)}
@@ -197,7 +202,11 @@ p {
 <div class="santa">🎅🛷</div>
 
 <div class="container">
-  <div class="logo">🎄 MIVO</div>
+
+  <!-- 🟢 LOGO MIVO -->
+  <div class="logo">
+    <img src="logo-mivo.png" alt="Logo Mivo">
+  </div>
 
   <h1>Maintenance de Noël</h1>
 
@@ -223,13 +232,14 @@ p {
   <a class="discord-btn" href="https://discord.gg/gwxEBGTG2P" target="_blank">
     💬 Rejoindre le Discord Mivo
   </a>
+
 </div>
 
 <script>
 /* 🎄 Date Noël */
 const targetDate = new Date(2025,11,25,0,0,0).getTime();
 
-/* 🌞 / 🌙 Jour Nuit (compatible iPhone) */
+/* 🌞 / 🌙 Jour Nuit */
 const h = new Date().getHours();
 document.body.classList.add(h >= 8 && h < 18 ? "day" : "night");
 
@@ -250,9 +260,9 @@ function update(){
 setInterval(update,1000);
 update();
 
-/* 🎆 Feu d’artifice (léger mobile) */
+/* 🎆 Feu d’artifice */
 function fireworks(){
-  for(let i=0;i<20;i++){
+  for(let i=0;i<18;i++){
     const f=document.createElement("div");
     f.className="firework";
     f.style.left=Math.random()*100+"vw";
