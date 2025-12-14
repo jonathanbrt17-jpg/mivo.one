@@ -2,276 +2,264 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mivo — Noël</title>
 
 <style>
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
 
-body {
+body{
   margin:0;
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
-  font-family:"Segoe UI", Arial, sans-serif;
+  font-family:"Segoe UI",Arial,sans-serif;
   color:#fff;
   text-align:center;
   overflow:hidden;
-  transition:background 1s;
+  background:linear-gradient(180deg,#081a11,#020b07);
 }
 
-/* 🌞 Jour / 🌙 Nuit */
-body.day {
-  background:linear-gradient(135deg,#b31217,#1e7e34);
-}
-body.night {
-  background:linear-gradient(135deg,#3a0000,#052e1c);
-}
-
-/* ❄️ Neige + ⭐ étoiles */
-.snow, .stars {
-  position:fixed;
-  inset:0;
+/* ❄️ NEIGE PARALLAX */
+.snow,.snow2{
+  position:fixed;inset:0;
   pointer-events:none;
+  background-repeat:repeat;
 }
-
-.snow {
-  background-image:
-    radial-gradient(2px 2px at 15% 20%, #fff, transparent),
-    radial-gradient(2px 2px at 35% 50%, #fff, transparent),
-    radial-gradient(2px 2px at 60% 30%, #fff, transparent),
-    radial-gradient(2px 2px at 80% 80%, #fff, transparent);
+.snow{
+  background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),
+                   radial-gradient(2px 2px at 60% 70%,#fff,transparent);
   animation:snow 12s linear infinite;
 }
-
-@keyframes snow {
-  from { transform:translateY(-60px); }
-  to { transform:translateY(100vh); }
+.snow2{
+  background-image:radial-gradient(1px 1px at 40% 20%,#fff,transparent),
+                   radial-gradient(1px 1px at 80% 60%,#fff,transparent);
+  animation:snow 22s linear infinite;
+  opacity:.6;
+}
+@keyframes snow{
+  from{transform:translateY(-60px)}
+  to{transform:translateY(100vh)}
 }
 
-.stars {
-  opacity:0;
-  background-image:
-    radial-gradient(1px 1px at 20% 20%, gold, transparent),
-    radial-gradient(1px 1px at 50% 10%, gold, transparent),
-    radial-gradient(1px 1px at 70% 30%, gold, transparent);
-  animation:twinkle 4s ease-in-out infinite;
-}
-
-body.night .stars { opacity:1; }
-
-@keyframes twinkle {
-  0%,100% {opacity:.6}
-  50% {opacity:1}
-}
-
-/* 🎅 Père Noël */
-.santa {
+/* 🌲 SAPIN RÉALISTE */
+.tree{
   position:fixed;
-  top:12%;
-  left:-180px;
-  font-size:2.5rem;
-  animation:santaFly 20s linear infinite;
-  pointer-events:none;
+  bottom:-30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:360px;
+  z-index:0;
+}
+.tree .layer{
+  height:140px;
+  background:linear-gradient(to top,#0b5f2f,#16b768);
+  clip-path:polygon(50% 0,0 100%,100% 100%);
+  margin-top:-40px;
 }
 
-@keyframes santaFly {
-  from { transform:translateX(-180px); }
-  to { transform:translateX(110vw); }
+/* ⭐ */
+.star{
+  position:fixed;
+  bottom:420px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:2.8rem;
+  animation:twinkle 1.2s infinite;
 }
 
-/* 📦 Contenu */
-.container {
+/* 🎀 GUIRLANDE */
+.garland{
+  position:fixed;
+  bottom:270px;
+  left:50%;
+  width:340px;
+  height:80px;
+  transform:translateX(-50%);
+  border-top:4px dotted gold;
+  border-radius:50%;
+}
+
+/* 🔴 BOULES LUMINEUSES */
+.ball{
+  position:fixed;
+  width:34px;height:34px;
+  border-radius:50%;
+  background:#c40000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.6rem;
+  font-weight:bold;
+  animation:glow 2s infinite alternate;
+}
+.ball.b1{bottom:230px;left:46%}
+.ball.b2{bottom:260px;left:42%}
+.ball.b3{bottom:260px;left:54%}
+@keyframes glow{
+  from{box-shadow:0 0 5px gold}
+  to{box-shadow:0 0 18px gold}
+}
+
+/* 🎁 CADEAUX */
+.gifts{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:14px;
+}
+.gift{
+  width:52px;height:42px;
+  background:#c40000;
+  border-radius:6px;
   position:relative;
-  width:100%;
-  max-width:520px;
-  padding:22px;
-  margin:10px;
-  animation:fadeIn 1s ease-in-out;
 }
+.gift:before,.gift:after{
+  content:"";
+  position:absolute;
+  background:gold;
+}
+.gift:before{width:8px;height:100%;left:50%;transform:translateX(-50%)}
+.gift:after{height:8px;width:100%;top:50%;transform:translateY(-50%)}
 
-/* 🟢 LOGO MIVO FLOTTANT ARRONDI */
-.logo {
-  width:110px;
-  height:110px;
+/* 🎅 */
+.santa{
+  position:fixed;
+  top:14%;
+  left:-200px;
+  font-size:2.5rem;
+  animation:santa 18s linear infinite;
+}
+@keyframes santa{to{transform:translateX(120vw)}}
+
+/* 📦 CONTENU */
+.container{position:relative;z-index:2;max-width:520px;padding:22px}
+
+/* 🟢 LOGO */
+.logo{
+  width:110px;height:110px;
   margin:0 auto 14px;
   border-radius:50%;
   background:rgba(255,255,255,.25);
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   overflow:hidden;
-  animation:floatLogo 3s ease-in-out infinite alternate;
+  animation:floatRotate 4s ease-in-out infinite;
+}
+.logo img{width:70%;height:70%;object-fit:contain}
+@keyframes floatRotate{
+  50%{transform:translateY(-10px) rotate(4deg)}
 }
 
-.logo img {
-  width:70%;
-  height:70%;
-  object-fit:contain;
-}
-
-/* 📝 Texte */
-h1 {
-  font-size:2.1rem;
-  margin-bottom:6px;
-}
-
-p {
-  margin:8px 0;
-  font-size:0.95rem;
-  line-height:1.4;
-}
-
-.highlight {
-  color:#ffd700;
-  font-weight:600;
-}
-
-/* ⏱️ Compte à rebours */
-.countdown {
+.countdown{
   display:flex;
   justify-content:center;
   gap:8px;
   margin:14px 0;
   flex-wrap:wrap;
 }
-
-.time-box {
+.time{
   background:rgba(255,255,255,.25);
-  border-radius:12px;
   padding:8px 12px;
+  border-radius:12px;
   min-width:65px;
 }
 
-.time-box span {
-  font-size:1.3rem;
-  font-weight:bold;
+#finalMessage{display:none;font-size:1.1rem;margin-top:14px}
+
+/* 🔘 BOUTONS */
+.btn{
+  display:inline-block;
+  margin-top:12px;
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:700;
+}
+.donate{background:#ffd700;color:#000}
+.discord{background:#5865F2;color:#fff}
+
+@keyframes twinkle{
+  50%{opacity:.5}
 }
 
-/* 🎆 Feu d’artifice */
-.firework {
+.firework{
   position:fixed;
-  width:6px;
-  height:6px;
+  width:6px;height:6px;
   border-radius:50%;
   background:gold;
-  animation:explode 1.2s ease-out forwards;
+  animation:boom 1.2s forwards;
+}
+@keyframes boom{
+  to{transform:scale(6);opacity:0}
 }
 
-@keyframes explode {
-  from { transform:scale(1); opacity:1; }
-  to { transform:scale(6); opacity:0; }
-}
-
-/* 🔘 Bouton */
-.discord-btn {
-  display:inline-block;
-  margin-top:14px;
-  padding:11px 22px;
-  border-radius:28px;
-  background:#5865F2;
-  color:#fff;
-  text-decoration:none;
-  font-weight:600;
-  font-size:0.95rem;
-}
-
-/* 🎄 Message final */
-#finalMessage {
-  display:none;
-  margin-top:16px;
-  font-size:1.1rem;
-}
-
-/* 📱 Mobile */
-@media (max-width:480px){
-  h1 { font-size:1.8rem; }
-  .logo { width:90px; height:90px; }
-  .santa { font-size:2rem; }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(12px)}
-  to {opacity:1; transform:translateY(0)}
-}
-
-@keyframes floatLogo {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
+@media(max-width:480px){
+  .tree{width:280px}
 }
 </style>
 </head>
 
 <body>
+
+<div class="tree">
+  <div class="layer"></div>
+  <div class="layer"></div>
+  <div class="layer"></div>
+</div>
+
+<div class="star">⭐</div>
+<div class="garland"></div>
+
+<div class="ball b1">MIVO</div>
+<div class="ball b2">MIVO</div>
+<div class="ball b3">MIVO</div>
+
+<div class="gifts">
+  <div class="gift"></div><div class="gift"></div>
+  <div class="gift"></div><div class="gift"></div>
+</div>
+
 <div class="snow"></div>
-<div class="stars"></div>
+<div class="snow2"></div>
 <div class="santa">🎅🛷</div>
 
 <div class="container">
-
-  <!-- 🟢 LOGO MIVO FLOTTANT -->
-  <div class="logo">
-    <img src="logo-mivo.png" alt="Logo Mivo">
-  </div>
+  <div class="logo"><img src="logo-mivo.png"></div>
 
   <h1>Maintenance de Noël</h1>
-
-  <p>
-    Le site <span class="highlight">Mivo</span> prépare une
-    <span class="highlight">surprise spéciale</span> pour les fêtes ✨
-  </p>
+  <p>Merci à toutes les personnes qui soutiennent Mivo 💙</p>
 
   <div class="countdown" id="countdown">
-    <div class="time-box"><span id="days">0</span><small>Jours</small></div>
-    <div class="time-box"><span id="hours">0</span><small>Heures</small></div>
-    <div class="time-box"><span id="minutes">0</span><small>Minutes</small></div>
-    <div class="time-box"><span id="seconds">0</span><small>Secondes</small></div>
+    <div class="time"><span id="d">0</span><br>Jours</div>
+    <div class="time"><span id="h">0</span><br>Heures</div>
+    <div class="time"><span id="m">0</span><br>Minutes</div>
+    <div class="time"><span id="s">0</span><br>Secondes</div>
   </div>
 
   <div id="finalMessage">
-    🎄 <strong>Joyeux Noël !</strong> 🎄<br>
-    Le site sera disponible dès demain 🎁<br><br>
-    💙 <strong>Merci à toutes les personnes qui ont visité le site,<br>
-    votre soutien compte énormément.</strong>
+    🎄 <strong>Joyeux Noël !</strong><br>
+    Le site sera disponible dès demain 🎁
   </div>
 
-  <a class="discord-btn" href="https://discord.gg/gwxEBGTG2P" target="_blank">
-    💬 Rejoindre le Discord Mivo
-  </a>
+  <a class="btn donate" href="https://www.leetchi.com/fr/c/mivo-a-besoin-de-vos-aide-1668136?utm_source=copylink&utm_medium=social_sharing" target="_blank">
+    🎁 Un petit don de Noël
+  </a><br>
 
+  <a class="btn discord" href="https://discord.gg/gwxEBGTG2P" target="_blank">
+    💬 Discord Mivo
+  </a>
 </div>
 
 <script>
-/* 🎄 Date Noël */
-const targetDate = new Date(2025,11,25,0,0,0).getTime();
+const target=new Date(2025,11,25,0,0,0).getTime();
 
-/* 🌞 / 🌙 Jour Nuit */
-const h = new Date().getHours();
-document.body.classList.add(h >= 8 && h < 18 ? "day" : "night");
-
-/* ⏱️ Compte à rebours */
-function update(){
-  const d = targetDate - Date.now();
-  if(d <= 0){
-    document.getElementById("countdown").style.display="none";
-    document.getElementById("finalMessage").style.display="block";
-    fireworks();
-    return;
-  }
-  days.textContent = Math.floor(d / 86400000);
-  hours.textContent = Math.floor((d % 86400000) / 3600000);
-  minutes.textContent = Math.floor((d % 3600000) / 60000);
-  seconds.textContent = Math.floor((d % 60000) / 1000);
-}
-setInterval(update,1000);
-update();
-
-/* 🎆 Feu d’artifice */
 function fireworks(){
-  for(let i=0;i<18;i++){
+  for(let i=0;i<20;i++){
     const f=document.createElement("div");
     f.className="firework";
     f.style.left=Math.random()*100+"vw";
@@ -280,6 +268,22 @@ function fireworks(){
     setTimeout(()=>f.remove(),1200);
   }
 }
+
+function update(){
+  const t=target-Date.now();
+  if(t<=0){
+    countdown.style.display="none";
+    finalMessage.style.display="block";
+    fireworks();fireworks();
+    return;
+  }
+  d.textContent=Math.floor(t/86400000);
+  h.textContent=Math.floor(t%86400000/3600000);
+  m.textContent=Math.floor(t%3600000/60000);
+  s.textContent=Math.floor(t%60000/1000);
+}
+setInterval(update,1000);update();
 </script>
+
 </body>
 </html>
