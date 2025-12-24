@@ -1,55 +1,81 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIVO</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header class="header" role="banner">
-    <img src="mivo.png" alt="Logo MIVO" class="logo" title="MIVO">
-    <div class="header-text">
-        <h1>MIVO</h1>
-        <p>Parler, c’est déjà guérir.</p>
-    </div>
-
-    <nav role="navigation">
-        <a href="apropos.html">À propos</a>
-        <a href="info.html">Infos</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-        <a href="don.html">Don</a>
-        <a href="urgence.html" class="urgence">⚠️ Urgence</a>
-    </nav>
-</header>
-
 <main class="content">
     <h2>Bienvenue sur MIVO</h2>
-    <p>⚠️ Attention, vérifiez les informations ⚠️</p>
 
-    <p>Bienvenue sur MIVO, une association pour vous aider, jeunes comme moins jeunes. La santé mentale n’est pas un jeu, pas plus que le harcèlement ou le cyberharcèlement. Voici quelques chiffres : </p>
+    <p style="font-weight:bold; color:#b00000;">
+        ⚠️ Attention — Ces informations sont importantes ⚠️
+    </p>
+
+    <p>
+        MIVO est une association née d’une réalité trop souvent ignorée :
+        celle de personnes qui souffrent en silence.
+    </p>
+
+    <p>
+        Harcèlement, cyberharcèlement, détresse mentale…
+        Ces mots ne sont pas juste des termes.
+        Ils représentent des blessures invisibles,
+        des nuits sans sommeil,
+        des messages qui détruisent,
+        et parfois un sentiment profond d’abandon.
+    </p>
+
+    <p>
+        Trop de jeunes, mais aussi d’adultes,
+        vivent ces situations sans oser en parler,
+        par peur, par honte ou par manque de soutien.
+    </p>
+
+    <p>
+        La santé mentale n’est <strong>pas un jeu</strong>.  
+        Le harcèlement n’est <strong>jamais anodin</strong>.
+        Une parole peut marquer une vie,
+        un message peut briser une confiance,
+        et le silence peut faire encore plus de dégâts.
+    </p>
+
+    <p>
+        Aujourd’hui, les chiffres sont alarmants :
+    </p>
 
     <ul>
-        <li>12,5 % des 18–80 ans et 13,5 % des 15–18 ans sont concernés par ces réalités.</li>
-        <li>7 % des jeunes déclarent avoir été victimes de harcèlement ou cyberharcèlement, soit près de cinq millions d’enfants. Malheureusement, ce chiffre continue d’augmenter.</li>
-        <li>Alors mobilisons-nous pour changer les choses.</li>
+        <li>
+            Environ <strong>12,5 % des adultes</strong> et
+            <strong>13,5 % des adolescents</strong>
+            sont touchés par des troubles liés à la santé mentale.
+        </li>
+        <li>
+            <strong>7 % des jeunes</strong> déclarent avoir été victimes
+            de harcèlement ou de cyberharcèlement,
+            soit près de <strong>cinq millions d’enfants</strong>.
+        </li>
     </ul>
 
-    <p>Nous proposons : </p>
-    <ul>
-        <li>Écoute et soutien</li>
-        <li>Signalement accompagné</li>
-        <li>Bientôt, des services comme l’art-thérapie et l’équithérapie pour permettre à chacun de s’exprimer autrement</li>
-    </ul>
+    <p>
+        Derrière ces chiffres, il y a des visages,
+        des histoires, des vies réelles.
+    </p>
 
-    <p>Vous n’êtes pas seul. MIVO se construit avec vous, pour vous.</p>
+    <p>
+        MIVO existe pour rappeler une chose essentielle :
+        <strong>personne ne devrait affronter ça seul</strong>.
+    </p>
+
+    <p>
+        Nous proposons une écoute attentive,
+        un soutien humain,
+        un accompagnement bienveillant,
+        et bientôt des solutions alternatives
+        comme l’art-thérapie et l’équithérapie,
+        pour permettre à chacun de s’exprimer autrement.
+    </p>
+
+    <p style="font-weight:bold;">
+        Vous n’êtes pas faible de demander de l’aide.  
+        Vous êtes courageux.
+    </p>
+
+    <p style="font-weight:bold;">
+        Vous n’êtes pas seul.  
+        MIVO se construit avec vous, pour vous.
+    </p>
 </main>
-
-<footer class="footer">
-    <p>© 2025 - MIVO. Tous droits réservés.</p>
-</footer>
-
-</body>
-</html>
