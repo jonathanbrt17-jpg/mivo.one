@@ -1,285 +1,128 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mivo — Maintenance de Noël</title>
-
-<style>
-:root{
-  --mivo:#00d4ff;
-  --gold:#ffd700;
-  --danger:#ff4d4d;
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  min-height:100vh;
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
-  color:#fff;
-  overflow:hidden;
-  background:linear-gradient(135deg,#141e30,#243b55);
-}
-
-/* ❄️ NEIGE */
-.snow,.snow2{
-  position:fixed;inset:0;
-  pointer-events:none;
-}
-.snow{
-  background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent);
-  animation:snow 14s linear infinite;
-}
-.snow2{
-  background-image:radial-gradient(1px 1px at 70% 60%,#fff,transparent);
-  animation:snow 22s linear infinite;
-  opacity:.6;
-}
-@keyframes snow{to{transform:translateY(100vh)}}
-
-/* 🌲 SAPIN À GAUCHE */
-.tree-zone{
-  position:fixed;
-  left:20px;
-  bottom:0;
-  width:260px;
-  z-index:1;
-}
-.star{
-  text-align:center;
-  font-size:2.2rem;
-  animation:twinkle 1.4s infinite;
-}
-@keyframes twinkle{50%{opacity:.5}}
-
-.tree .layer{
-  height:110px;
-  background:linear-gradient(to top,#0b5f2f,#20d38a);
-  clip-path:polygon(50% 0,0 100%,100% 100%);
-  margin-top:-36px;
-}
-
-/* 💡 GUIRLANDE */
-.light{
-  position:absolute;
-  width:10px;height:10px;
-  border-radius:50%;
-  background:var(--mivo);
-  box-shadow:0 0 12px var(--mivo);
-  animation:blink 1.6s infinite alternate;
-}
-@keyframes blink{to{opacity:.4}}
-
-/* 🔵 BOULES LOGO */
-.ball{
-  position:absolute;
-  width:34px;height:34px;
-  border-radius:50%;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 14px var(--mivo);
-}
-.ball img{
-  width:80%;
-  height:80%;
-  object-fit:contain;
-}
-.b1{top:105px;left:42%}
-.b2{top:150px;left:30%}
-.b3{top:150px;left:58%}
-
-/* 🎁 CADEAUX À DROITE */
-.gifts{
-  position:fixed;
-  right:30px;
-  bottom:20px;
-  display:flex;
-  gap:12px;
-  z-index:1;
-}
-.gift{
-  width:50px;height:40px;
-  background:var(--mivo);
-  border-radius:6px;
-  position:relative;
-  animation:gift 2.6s ease-in-out infinite;
-}
-.gift:nth-child(2){animation-delay:.4s}
-.gift:nth-child(3){animation-delay:.8s}
-@keyframes gift{50%{transform:translateY(-8px)}}
-.gift:before,.gift:after{
-  content:"";
-  position:absolute;
-  background:#fff;
-}
-.gift:before{width:8px;height:100%;left:50%;transform:translateX(-50%)}
-.gift:after{height:8px;width:100%;top:50%;transform:translateY(-50%)}
-
-/* 📦 CONTENU */
-.container{
-  position:relative;
-  z-index:2;
-  max-width:520px;
-  margin:40px auto;
-  text-align:center;
-  padding:22px;
-}
-
-/* 🟢 LOGO */
-.logo{
-  width:110px;height:110px;
-  margin:0 auto 16px;
-  border-radius:50%;
-  background:rgba(255,255,255,.2);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  animation:float 4s ease-in-out infinite;
-}
-.logo img{
-  width:70%;
-  height:70%;
-  object-fit:contain;
-}
-@keyframes float{50%{transform:translateY(-10px)}}
-
-/* ⏱️ */
-.countdown{
-  display:flex;
-  justify-content:center;
-  gap:10px;
-  flex-wrap:wrap;
-  margin:16px 0;
-}
-.time{
-  background:rgba(255,255,255,.2);
-  padding:10px 14px;
-  border-radius:12px;
-  min-width:65px;
-}
-
-/* 🔘 BOUTONS */
-.btn{
-  display:inline-block;
-  margin-top:12px;
-  padding:12px 26px;
-  border-radius:30px;
-  font-weight:700;
-  text-decoration:none;
-}
-.donate{background:var(--gold);color:#000}
-.discord{background:#5865F2;color:#fff}
-.urgent{
-  background:var(--danger);
-  color:#fff;
-  box-shadow:0 0 18px rgba(255,77,77,.6);
-}
-
-/* 🎆 FEU D’ARTIFICE */
-.firework{
-  position:fixed;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--mivo);
-  animation:boom 1.2s forwards;
-}
-@keyframes boom{to{transform:scale(6);opacity:0}}
-
-@media(max-width:480px){
-  .tree-zone{width:200px;left:10px}
-  .gifts{right:10px}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIVO</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="snow"></div>
-<div class="snow2"></div>
+<header class="header">
+    <img src="mivo.png" alt="Logo MIVO" class="logo">
 
-<!-- 🌲 SAPIN -->
-<div class="tree-zone">
-  <div class="star">⭐</div>
-  <div class="tree">
-    <div class="layer"></div>
-    <div class="layer"></div>
-    <div class="layer"></div>
-  </div>
+    <div class="header-text">
+        <h1>MIVO</h1>
+        <p>Parler, c’est déjà guérir.</p>
+    </div>
 
-  <div class="light" style="top:110px;left:25%"></div>
-  <div class="light" style="top:125px;left:45%"></div>
-  <div class="light" style="top:140px;left:65%"></div>
+    <nav>
+        <a href="apropos.html">À propos</a>
+        <a href="info.html">Infos</a>
+        <a href="services.html">Services</a>
+        <a href="contact.html">Contact</a>
+        <a href="don.html">Don</a>
+        <a href="urgence.html" class="urgence">⚠️ Urgence</a>
+    </nav>
+</header>
 
-  <div class="ball b1"><img src="logo-mivo.png"></div>
-  <div class="ball b2"><img src="logo-mivo.png"></div>
-  <div class="ball b3"><img src="logo-mivo.png"></div>
-</div>
+<main class="content">
+    <h2>Bienvenue sur MIVO</h2>
 
-<!-- 🎁 -->
-<div class="gifts">
-  <div class="gift"></div>
-  <div class="gift"></div>
-  <div class="gift"></div>
-</div>
+    <p style="color:#b00000; font-weight:bold;">
+        ⚠️ Attention — Merci de prendre connaissance des informations ci-dessous
+    </p>
 
-<!-- 📦 -->
-<div class="container">
-  <div class="logo">
-    <img src="logo-mivo.png" alt="Logo Mivo">
-  </div>
+    <p>
+  MIVO est une association née d’un constat simple mais alarmant :
+        trop de personnes, jeunes comme adultes, souffrent en silence.
+    </p>
 
-  <h1>Maintenance de Noël</h1>
-  <p>Merci à toutes les personnes qui ont regardé et soutiennent <strong>Mivo</strong> 💙</p>
+    <p>
+        Harcèlement, cyberharcèlement, détresse psychologique…
+        Ces réalités détruisent l’estime de soi, isolent,
+        et peuvent laisser des blessures profondes et durables.
+    </p>
 
-  <div class="countdown">
-    <div class="time"><span id="d">0</span><br>Jours</div>
-    <div class="time"><span id="h">0</span><br>Heures</div>
-    <div class="time"><span id="m">0</span><br>Minutes</div>
-    <div class="time"><span id="s">0</span><br>Secondes</div>
-  </div>
+    <p>
+        Derrière chaque message blessant,
+        chaque moquerie répétée,
+        chaque pression en ligne,
+        il y a une personne qui lutte.
+    </p>
 
-  <a class="btn donate" href="https://www.leetchi.com/fr/c/mivo-a-besoin-de-vos-aide-1668136?utm_source=copylink&utm_medium=social_sharing" target="_blank">
-    🎁 Un petit don de Noël
-  </a><br>
+    <p>
+        La santé mentale n’est <strong>pas un jeu</strong>.  
+        Le harcèlement n’est <strong>jamais banal</strong>.
+        Le silence, lui, peut être destructeur.
+    </p>
 
-  <a class="btn discord" href="https://discord.gg/gwxEBGTG2P" target="_blank">
-    💬 Discord Mivo
-  </a><br>
+    <p>
+        Aujourd’hui, les chiffres parlent d’eux-mêmes :
+    </p>
 
-  <!-- 🚨 BOUTON URGENCE -->
-  <a class="btn urgent" href="tel:0752995625">
-    🚨 Urgence — Appeler
-  </a>
-</div>
+    <ul>
+        <li>
+            Environ <strong>12,5 % des adultes</strong> et
+            <strong>13,5 % des adolescents</strong>
+            sont touchés par des troubles liés à la santé mentale.
+        </li>
+        <li>
+            Près de <strong>7 % des jeunes</strong> déclarent avoir été victimes
+            de harcèlement ou de cyberharcèlement,
+            soit près de <strong>cinq millions d’enfants</strong>.
+        </li>
+    </ul>
 
-<script>
-const target=new Date(2025,11,25,0,0,0).getTime();
+    <p>
+        Ces chiffres représentent des vies,
+        des parcours fragiles,
+        des appels à l’aide trop souvent ignorés.
+    </p>
 
-function fireworks(){
-  for(let i=0;i<20;i++){
-    const f=document.createElement("div");
-    f.className="firework";
-    f.style.left=Math.random()*100+"vw";
-    f.style.top=Math.random()*60+"vh";
-    document.body.appendChild(f);
-    setTimeout(()=>f.remove(),1200);
-  }
-}
+    <p>
+        MIVO existe pour offrir un espace d’écoute,
+        de soutien et de respect,
+        sans jugement et en toute confidentialité.
+    </p>
 
-setInterval(()=>{
-  const t=target-Date.now();
-  if(t<=0){fireworks();return;}
-  d.textContent=Math.floor(t/86400000);
-  h.textContent=Math.floor(t%86400000/3600000);
-  m.textContent=Math.floor(t%3600000/60000);
-  s.textContent=Math.floor(t%60000/1000);
-},1000);
-</script>
+    <p>
+        La santé mentale n’est pas un jeu.
+        Le harcèlement, qu’il soit en ligne ou dans la vie réelle,
+        peut laisser des blessures profondes et durables.
+    </p>
+
+    <p>
+        Aujourd’hui, de nombreuses personnes souffrent en silence.
+        Derrière chaque chiffre, il y a une histoire, une personne,
+        parfois une détresse invisible.
+    </p>
+
+    <p>
+        MIVO existe pour offrir :
+    </p>
+
+    <ul>
+        <li>Une écoute bienveillante et sans jugement</li>
+        <li>Un accompagnement face au harcèlement et au cyberharcèlement</li>
+        <li>Un soutien autour de la santé mentale</li>
+        <li>Des solutions alternatives à venir (art-thérapie, équithérapie)</li>
+    </ul>
+
+    <p>
+        Demander de l’aide est un acte de courage.
+    </p>
+
+    <p style="font-weight:bold;">
+        Vous n’êtes pas seul.  
+        MIVO se construit avec vous, pour vous.
+    </p>
+</main>
+
+<footer class="footer">
+    <p>© 2025 - MIVO. Tous droits réservés.</p>
+</footer>
 
 </body>
 </html>
