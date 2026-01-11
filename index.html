@@ -17,46 +17,80 @@
       height: 100vh;
       text-align: center;
     }
+
     .box {
-      max-width: 520px;
+      max-width: 600px;
       padding: 35px;
       background: #020617;
       border-radius: 16px;
       box-shadow: 0 0 30px rgba(0,0,0,.7);
     }
+
     h1 { color: #60a5fa; }
-    .timer { margin: 25px 0; font-weight: bold; color: #38bdf8; }
-    a { color: #93c5fd; text-decoration: none; }
+
+    .timer {
+      margin: 20px 0;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    a {
+      color: #93c5fd;
+      text-decoration: none;
+    }
+
+    .admin-link {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      opacity: 0.6;
+    }
   </style>
 </head>
 
 <body>
   <div class="box">
     <h1>🛠 Maintenance en cours</h1>
-    <p>
+
+    <!-- MESSAGE MODIFIABLE PAR L'ADMIN -->
+    <p id="adminMessage">
       Maintenance non prévue suite à un bug système.<br>
       Nous vous remercions de votre compréhension et nous nous excusons
-      de la gêne occasionnée.
+      de toute la gêne occasionnée.
     </p>
 
+    <!-- TIMER -->
     <div class="timer" id="countdown">Chargement…</div>
 
+    <!-- QUESTIONNAIRE -->
+    <p>
+      📊 <a href="https://forms.gle/KKD1gbTxMp3zH2Ax5" target="_blank">
+        Questionnaire de l’étude MIVO
+      </a>
+    </p>
+
+    <!-- CONTACT -->
     <p>
       📞 <a href="tel:0752995625">07 52 99 56 25</a><br>
       📧 <a href="mailto:mivoasso@proton.me">mivoasso@proton.me</a>
     </p>
+
+    <!-- ACCÈS ADMIN -->
+    <div class="admin-link">
+      <a href="admin.html">Accès administrateur</a>
+    </div>
   </div>
 
   <script>
+    /* ===== TIMER ===== */
     const targetDate = new Date("2026-02-20T18:00:00").getTime();
-    const el = document.getElementById("countdown");
+    const countdown = document.getElementById("countdown");
 
     setInterval(() => {
       const now = Date.now();
       const d = targetDate - now;
 
       if (d <= 0) {
-        el.textContent = "✅ La maintenance est terminée.";
+        countdown.textContent = "✅ Maintenance terminée.";
         return;
       }
 
@@ -65,8 +99,15 @@
       const m = Math.floor((d % 3600000) / 60000);
       const s = Math.floor((d % 60000) / 1000);
 
-      el.textContent = `⏳ Reprise prévue dans ${j}j ${h}h ${m}m ${s}s`;
+      countdown.textContent =
+        `⏳ Reprise prévue dans ${j}j ${h}h ${m}m ${s}s`;
     }, 1000);
+
+    /* ===== MESSAGE ADMIN ===== */
+    const saved = localStorage.getItem("mivo_admin_message");
+    if (saved) {
+      document.getElementById("adminMessage").innerHTML = saved;
+    }
   </script>
 </body>
 </html>
