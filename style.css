@@ -1,81 +1,102 @@
-  color: #dbe6ff;
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f4f8;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #3f68ff, #3552cc);
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.logo {
+    width: 70px;
+    height: auto;
+    border-radius: 12px;
+    background: white;
+    padding: 5px;
+}
+
+.header-text h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.header-text p {
+    margin: 0;
+    opacity: 0.9;
 }
 
 /* NAV */
 nav {
-  margin-left: auto;
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+    margin-left: auto;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
 }
 
 nav a {
-  background: white;
-  color: #0a5cff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  padding: 6px 10px;
-  border-radius: 4px;
-  font-weight: bold;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 6px 10px;
+    border-radius: 6px;
 }
 
 nav a:hover {
-  background: #e3ebff;
+    background: rgba(255,255,255,0.2);
 }
 
 /* URGENCE */
 .urgence {
-  background: #e53935 !important;
-  color: white !important;
+    background: #ff2d2d;
+}
+
+.urgence:hover {
+    background: #cc0000;
 }
 
 /* CONTENU */
-.content,
-.container {
-  background: white;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 20px;
-  border-radius: 6px;
+.content {
+    padding: 30px;
 }
 
 h2 {
-  color: #0a5cff;
-  margin-bottom: 10px;
+    color: #2b2b2b;
+    font-size: 28px;
 }
 
-p, li {
-  margin-bottom: 10px;
-}
-
-/* BOUTONS */
-.btn-big {
-  background: #0a5cff;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-weight: bold;
-  display: inline-block;
+p {
+    font-size: 17px;
+    color: #444;
+    line-height: 1.6;
 }
 
 /* FOOTER */
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 0.8rem;
-  color: #666;
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: #e3e5ef;
+    margin-top: 40px;
+    color: #333;
+    font-size: 15px;
 }
 
 /* MOBILE */
 @media (max-width: 768px) {
-  nav {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
+    .header {
+        justify-content: center;
+        text-align: center;
+    }
 
-  nav a {
-    font-size: 0.8rem;
-    padding: 6px 8px;
-  }
+    nav {
+        justify-content: center;
+        margin-left: 0;
+    }
+}
