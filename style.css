@@ -100,3 +100,10 @@ p {
         margin-left: 0;
     }
 }
+img.logo {
+    width: 70px !important;
+    max-width: 70px !important;
+    height: auto !important;
+    display: block;
+}
+
