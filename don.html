@@ -1,22 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>MIVO — Faire un don</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
-</head>
-<script 
-  src="https://www.paypal.com/sdk/js?client-id=BAA26VKvbu73gOnc3JYsyXnHTOTX5QL7_OAjs-k5uadJjBqQjRYySUVYOueEGTgeU_HlBJExtfLpG0r2fg&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-</script>
-<body>
-  <div id="paypal-container-VT7KVWRRTUSRE"></div>
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "VT7KVWRRTUSRE",
-  }).render("#paypal-container-VT7KVWRRTUSRE")
-</script>
 
+  <!-- Script PayPal -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAA26VKvbu73gOnc3JYsyXnHTOTX5QL7_OAjs-k5uadJjBqQjRYySUVYOueEGTgeU_HlBJExtfLpG0r2fg&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+  </script>
+</head>
+
+<body>
+
+<!-- HEADER EN HAUT -->
 <header class="header">
   <img src="mivo.png" alt="Logo MIVO" class="logo">
 
@@ -35,30 +33,24 @@
   </nav>
 </header>
 
+<!-- CONTENU -->
 <main class="container">
   <section class="section">
     <h2>Soutenir l’association</h2>
 
     <p>
       💙 <strong>Soutenir MIVO, c’est changer une vie.</strong><br><br>
-      Vous pouvez nous aider en faisant un don.  
+      Vous pouvez nous aider en faisant un don.
       Chaque contribution, petite ou grande, a un impact réel.
     </p>
 
     <p>
-      Grâce à votre soutien, MIVO peut continuer à offrir un espace sûr aux jeunes victimes de harcèlement,
-      de cyberharcèlement et de détresse mentale.  
-      Vos dons nous aident à améliorer nos services, accompagner davantage de jeunes en difficulté,
-      et développer des actions concrètes pour protéger, écouter et soutenir ceux qui n’ont nulle part où aller.
+      Grâce à votre soutien, MIVO peut continuer à offrir un espace sûr aux jeunes victimes
+      de harcèlement, de cyberharcèlement et de détresse mentale.
     </p>
 
-    <p>
-      En donnant, vous participez directement à redonner confiance, apaiser les blessures invisibles,
-      et offrir une lumière à quelqu’un qui se sent seul.  
-      <strong>Votre geste peut réellement tout changer.</strong>
-    </p>
-
-    </div>
+    <!-- BOUTON PAYPAL EN BAS -->
+    <div id="paypal-container-VT7KVWRRTUSRE" style="margin-top: 40px;"></div>
 
   </section>
 </main>
@@ -66,6 +58,13 @@
 <footer>
   <div class="container">© 2025 - MIVO. Tous droits réservés.</div>
 </footer>
+
+<!-- Script d'affichage PayPal -->
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "VT7KVWRRTUSRE",
+  }).render("#paypal-container-VT7KVWRRTUSRE")
+</script>
 
 </body>
 </html>
