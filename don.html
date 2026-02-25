@@ -42,34 +42,6 @@
   box-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
-/* Montant libre */
-.montant-libre {
-  margin-top: 40px;
-}
-
-.montant-libre input {
-  padding: 10px;
-  width: 120px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.montant-libre button {
-  padding: 10px 18px;
-  border: none;
-  background-color: #28a745;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-left: 10px;
-  transition: 0.3s;
-}
-
-.montant-libre button:hover {
-  background-color: #218838;
-}
-
 </style>
 </head>
 
@@ -98,12 +70,18 @@
   <h2>Soutenir MIVO</h2>
 
   <p style="font-size:18px;">
-    💙 <strong>Un don peut devenir une lumière pour quelqu’un.</strong>
+    💙 <strong>Votre don peut réellement changer une vie.</strong>
   </p>
 
   <p>
-    Votre soutien permet à MIVO de continuer à accompagner
-    les jeunes victimes de harcèlement et de détresse mentale.
+    Chaque contribution permet à MIVO de continuer à offrir
+    écoute et accompagnement aux jeunes victimes
+    de harcèlement et de détresse mentale.
+  </p>
+
+  <p>
+    Ensemble, nous pouvons briser le silence
+    et redonner espoir à ceux qui en ont besoin.
   </p>
 
   <h3>Choisissez un montant :</h3>
@@ -124,29 +102,11 @@
     <a href="https://www.paypal.com/ncp/payment/G9C53FDMU8RWJ" target="_blank">100 €</a>
   </div>
 
-  <!-- Montant libre -->
-  <div class="montant-libre">
-    <h3>Ou choisissez un montant libre :</h3>
-    <input type="number" id="montant" placeholder="Montant €" min="1">
-    <button onclick="donLibre()">Donner</button>
-  </div>
-
 </main>
 
 <footer class="footer">
   <p>© 2025 - MIVO. Tous droits réservés.</p>
 </footer>
-
-<script>
-function donLibre() {
-  var montant = document.getElementById("montant").value;
-  if (montant > 0) {
-    window.open("https://www.paypal.com/donate?amount=" + montant + "&currency_code=EUR", "_blank");
-  } else {
-    alert("Veuillez entrer un montant valide.");
-  }
-}
-</script>
 
 </body>
 </html>
