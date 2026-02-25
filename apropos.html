@@ -4,55 +4,106 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIVO — À propos</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===== Reset ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
-
-/* ===== Body & Fond ===== */
-body { background:#000814; color:white; overflow-x:hidden; min-height:100vh; position:relative; }
-
-/* ===== Header ===== */
-.header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background: rgba(0,0,0,0.6); position: sticky; top:0; backdrop-filter: blur(10px); z-index:10; }
-.header .logo{width:60px;}
-.header-text h1{font-size:28px;color:#00c6ff;}
-.header-text p{font-size:14px;color:#a0eaff;}
-.header nav a{color:white;margin-left:20px;text-decoration:none;font-weight:600;position:relative;transition:0.3s;}
-.header nav a::after{content:'';position:absolute;width:0;height:2px;background:#00c6ff;left:0;bottom:-5px;transition:0.3s;}
-.header nav a:hover::after{width:100%;}
-.header nav .don{color:#00ffaa;font-weight:bold;}
-.header nav .urgence{color:#ff4e42;font-weight:bold;}
-
-/* ===== Main ===== */
-main{max-width:900px;margin:80px auto 50px auto;padding:0 20px;text-align:left;animation:fadeIn 1s ease forwards; opacity:0;}
-main h2{font-size:36px;margin-bottom:20px;color:#00c6ff;text-shadow:0 0 8px #00c6ff;text-align:center;}
-main p{font-size:18px;margin-bottom:20px;line-height:1.6;}
-
-/* ===== Animation fade ===== */
-@keyframes fadeIn{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
-
-/* ===== Footer ===== */
-.footer{text-align:center;padding:30px;color:#a0eaff;border-top:1px solid #00c6ff33;}
-
-/* ===== Responsive ===== */
-@media(max-width:768px){
-  .header { flex-direction:column; gap:15px; }
-  main h2{ font-size:28px; }
-  main p{ font-size:16px; }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
 }
 
-/* ===== Étoiles légères ===== */
+body{
+  background:#000814;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:rgba(0,0,0,0.6);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+  z-index:10;
+}
+
+.logo{width:60px;}
+
+.header-text h1{color:#00c6ff;}
+.header-text p{color:#a0eaff;font-size:14px;}
+
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
+
+nav a:hover{color:#00c6ff;}
+
+nav .don{color:#00ffaa;}
+nav .urgence{color:#ff4e42;}
+
+main{
+  max-width:900px;
+  margin:80px auto 50px auto;
+  padding:0 20px;
+  animation:fadeIn 1s ease forwards;
+  opacity:0;
+}
+
+main h2{
+  font-size:36px;
+  margin-bottom:20px;
+  color:#00c6ff;
+  text-align:center;
+}
+
+main p{
+  font-size:18px;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #00c6ff33;
+  color:#a0eaff;
+}
+
+/* Étoiles */
 .star{
   position:absolute;
-  border-radius:50%;
   background:white;
-  opacity:0.7;
+  border-radius:50%;
+  opacity:0.6;
   animation:twinkle infinite alternate;
 }
 
 @keyframes twinkle{
   from{opacity:0.2;}
-  to{opacity:0.9;}
+  to{opacity:0.8;}
+}
+
+@media(max-width:768px){
+  .header{flex-direction:column;gap:15px;}
+  main h2{font-size:28px;}
+  main p{font-size:16px;}
 }
 </style>
 </head>
@@ -75,52 +126,34 @@ main p{font-size:18px;margin-bottom:20px;line-height:1.6;}
   </nav>
 </header>
 
-<main class="content">
+<main>
   <h2>Qui sommes-nous ?</h2>
 
-  <p>
-    MIVO est née d’un constat alarmant : chaque année, un nombre croissant de jeunes subissent du harcèlement, 
-    du cyberharcèlement, et traversent des difficultés profondes en matière de santé mentale. Beaucoup vivent 
-    ces épreuves dans le silence, sans trouver un lieu sûr, bienveillant et réellement à l’écoute.
-  </p>
+  <p>MIVO est née d’un constat alarmant : chaque année, un nombre croissant de jeunes subissent du harcèlement et du cyberharcèlement.</p>
 
-  <p>
-    Fondée par Bertout Jonathan en juin 2025, l’idée commence à prendre forme dès octobre 2025 avant que les 
-    démarches officielles ne débutent en novembre. Deux personnes — pour l’instant anonymes — ont également 
-    contribué à bâtir le projet.
-  </p>
+  <p>Fondée par Bertout Jonathan en juin 2025, l’idée commence à prendre forme dès octobre 2025 avant les démarches officielles en novembre.</p>
 
-  <p>
-    MIVO repose sur une conviction forte : personne ne devrait affronter seul le harcèlement, le cyberharcèlement 
-    ou une détresse mentale. Notre mission est d’offrir un espace où chaque personne peut être entendue, accompagnée 
-    et soutenue.
-  </p>
+  <p>Notre mission est d’offrir un espace sûr où chacun peut être écouté, accompagné et soutenu.</p>
 
-  <p>
-    Nous serons pleinement opérationnels à partir du 16 juin 2026, avec une ambition claire : apporter une aide humaine, 
-    un soutien mental et une présence rassurante à toutes celles et ceux qui en ont besoin.
-  </p>
+  <p>Nous serons pleinement opérationnels à partir du 16 juin 2026.</p>
 
-  <p>
-    MIVO existe pour redonner confiance, apaiser les blessures invisibles et offrir une lumière à ceux qui se sentent seuls. 
-    Parce qu’une écoute, un mot, un geste peut parfois tout changer.
-  </p>
+  <p>MIVO existe pour redonner confiance et offrir une lumière à ceux qui se sentent seuls.</p>
+
 </main>
 
 <footer class="footer">
-  <p>© 2025 - MIVO. Tous droits réservés.</p>
+  © 2025 - MIVO. Tous droits réservés.
 </footer>
 
 <script>
-// ===== Étoiles légères =====
-const starCount = 80;
+const starCount = 60;
 for(let i=0;i<starCount;i++){
-  let star=document.createElement('div');
-  star.classList.add('star');
-  star.style.width=star.style.height=Math.random()*2+1+'px';
-  star.style.top=Math.random()*100+'vh';
-  star.style.left=Math.random()*100+'vw';
-  star.style.animationDuration=(Math.random()*3+2)+'s';
+  const star = document.createElement('div');
+  star.className = 'star';
+  star.style.width = star.style.height = (Math.random()*2+1)+'px';
+  star.style.top = Math.random()*100+'vh';
+  star.style.left = Math.random()*100+'vw';
+  star.style.animationDuration = (Math.random()*3+2)+'s';
   document.body.appendChild(star);
 }
 </script>
