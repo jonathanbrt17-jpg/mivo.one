@@ -4,64 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIVO — Contact</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
-/* ===== Reset ===== */
-* { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
 
-/* ===== Body & Fond ===== */
-body { background:#000814; color:white; overflow-x:hidden; min-height:100vh; position:relative; }
+body{
+  background:#000814;
+  color:white;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
 
-/* ===== Header ===== */
-.header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background: rgba(0,0,0,0.6); position: sticky; top:0; backdrop-filter: blur(10px); z-index:10; }
-.header .logo{width:60px;}
-.header-text h1{font-size:28px;color:#00c6ff;}
-.header-text p{font-size:14px;color:#a0eaff;}
-.header nav a{color:white;margin-left:20px;text-decoration:none;font-weight:600;position:relative;transition:0.3s;}
-.header nav a::after{content:'';position:absolute;width:0;height:2px;background:#00c6ff;left:0;bottom:-5px;transition:0.3s;}
-.header nav a:hover::after{width:100%;}
-.header nav .don{color:#00ffaa;font-weight:bold;}
-.header nav .urgence{color:#ff4e42;font-weight:bold;}
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:rgba(0,0,0,0.6);
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(10px);
+}
 
-/* ===== Main ===== */
-main{max-width:900px;margin:80px auto 50px auto;padding:0 20px;text-align:left;animation:fadeIn 1s ease forwards; opacity:0;}
-main h2{font-size:36px;margin-bottom:20px;color:#00c6ff;text-shadow:0 0 8px #00c6ff;text-align:center;}
-main h3{color:#00ffaa;margin-top:20px;}
-main p{font-size:18px;margin-bottom:20px;line-height:1.6;}
-a.btn-small{display:inline-block;padding:10px 18px;background:#00c6ff;color:black;border-radius:10px;text-decoration:none;font-weight:bold;transition:all 0.3s;}
-a.btn-small:hover{transform:scale(1.1);box-shadow:0 0 15px #00c6ff;}
+.logo{width:60px;}
 
-.tiktok-button{display:flex;align-items:center;gap:10px;padding:12px 20px;background:#ff0044;color:white;border-radius:12px;text-decoration:none;font-weight:bold;transition:all 0.3s;}
-.tiktok-button:hover{transform:scale(1.05);box-shadow:0 0 20px #ff0044;}
-.tiktok-button img{width:30px;}
+.header-text h1{color:#00c6ff;}
+.header-text p{color:#a0eaff;font-size:14px;}
 
-.tiktok-desc{color:#a0eaff;font-size:16px;margin-top:10px;}
+nav a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+}
 
-/* ===== Animation fade ===== */
-@keyframes fadeIn{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);} }
+nav a:hover{color:#00c6ff;}
 
-/* ===== Footer ===== */
-.footer{text-align:center;padding:30px;color:#a0eaff;border-top:1px solid #00c6ff33;}
+nav .don{color:#00ffaa;}
+nav .urgence{color:#ff4e42;}
 
-/* ===== Étoiles légères ===== */
+main{
+  max-width:900px;
+  margin:80px auto 50px auto;
+  padding:0 20px;
+  animation:fadeIn 1s ease forwards;
+  opacity:0;
+}
+
+main h2{
+  font-size:36px;
+  margin-bottom:20px;
+  color:#00c6ff;
+  text-align:center;
+}
+
+main h3{
+  color:#00ffaa;
+  margin-top:25px;
+}
+
+main p{
+  font-size:18px;
+  margin-bottom:20px;
+  line-height:1.6;
+}
+
+.btn-small{
+  display:inline-block;
+  padding:10px 18px;
+  background:#00c6ff;
+  color:black;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.btn-small:hover{
+  transform:scale(1.05);
+}
+
+.tiktok-button{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 20px;
+  background:#ff0044;
+  color:white;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.tiktok-button:hover{
+  transform:scale(1.05);
+}
+
+.tiktok-button img{
+  width:30px;
+}
+
+.tiktok-desc{
+  color:#a0eaff;
+  font-size:16px;
+  margin-top:10px;
+}
+
+.footer{
+  text-align:center;
+  padding:30px;
+  border-top:1px solid #00c6ff33;
+  color:#a0eaff;
+}
+
 .star{
   position:absolute;
-  border-radius:50%;
   background:white;
-  opacity:0.7;
+  border-radius:50%;
+  opacity:0.6;
   animation:twinkle infinite alternate;
 }
-@keyframes twinkle{
-  from{opacity:0.2;}
-  to{opacity:0.9;}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-/* ===== Responsive ===== */
+@keyframes twinkle{
+  from{opacity:0.2;}
+  to{opacity:0.8;}
+}
+
 @media(max-width:768px){
-  .header { flex-direction:column; gap:15px; }
-  main h2{ font-size:28px; }
-  main p, .tiktok-desc{ font-size:16px; }
-  a.btn-small, .tiktok-button{ font-size:16px; padding:10px 16px; }
+  .header{flex-direction:column;gap:15px;}
+  main h2{font-size:28px;}
+  main p{font-size:16px;}
 }
 </style>
 </head>
@@ -84,7 +171,7 @@ a.btn-small:hover{transform:scale(1.1);box-shadow:0 0 15px #00c6ff;}
   </nav>
 </header>
 
-<main class="content">
+<main>
   <h2>Nous contacter</h2>
   <p>Nous répondons rapidement.</p>
 
@@ -100,26 +187,25 @@ a.btn-small:hover{transform:scale(1.1);box-shadow:0 0 15px #00c6ff;}
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/TikTok_logo.svg" alt="TikTok">
     Voir le TikTok officiel
   </a>
+
   <p class="tiktok-desc">
-    Rejoignez-nous sur TikTok : conseils, prévention, soutien, témoignages et actions
-    de l’association. Une communauté bienveillante vous attend 💙
+    Rejoignez-nous sur TikTok : conseils, prévention, soutien et actions de l’association.
   </p>
 </main>
 
 <footer class="footer">
-  <p>© 2025 - MIVO. Tous droits réservés.</p>
+  © 2025 - MIVO. Tous droits réservés.
 </footer>
 
 <script>
-// ===== Étoiles légères =====
-const starCount = 80;
+const starCount = 60;
 for(let i=0;i<starCount;i++){
-  let star=document.createElement('div');
-  star.classList.add('star');
-  star.style.width=star.style.height=Math.random()*2+1+'px';
-  star.style.top=Math.random()*100+'vh';
-  star.style.left=Math.random()*100+'vw';
-  star.style.animationDuration=(Math.random()*3+2)+'s';
+  const star = document.createElement('div');
+  star.className='star';
+  star.style.width = star.style.height = (Math.random()*2+1)+'px';
+  star.style.top = Math.random()*100+'vh';
+  star.style.left = Math.random()*100+'vw';
+  star.style.animationDuration = (Math.random()*3+2)+'s';
   document.body.appendChild(star);
 }
 </script>
