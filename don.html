@@ -1,20 +1,80 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>MIVO — Faire un don</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>MIVO — Faire un don</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
 
-  <!-- Script PayPal -->
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAA26VKvbu73gOnc3JYsyXnHTOTX5QL7_OAjs-k5uadJjBqQjRYySUVYOueEGTgeU_HlBJExtfLpG0r2fg&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-  </script>
+<style>
+
+/* Animation apparition */
+.fade-in {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Boutons dons */
+.don-buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.don-buttons a {
+  background: linear-gradient(135deg, #0070ba, #00a2ff);
+  color: white;
+  padding: 12px 22px;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.don-buttons a:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* Montant libre */
+.montant-libre {
+  margin-top: 40px;
+}
+
+.montant-libre input {
+  padding: 10px;
+  width: 120px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.montant-libre button {
+  padding: 10px 18px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 10px;
+  transition: 0.3s;
+}
+
+.montant-libre button:hover {
+  background-color: #218838;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- HEADER EN HAUT -->
 <header class="header">
   <img src="mivo.png" alt="Logo MIVO" class="logo">
 
@@ -23,7 +83,7 @@
     <p>Parler, c’est déjà guérir.</p>
   </div>
 
-  <nav class="nav">
+  <nav>
     <a href="index.html">Accueil</a>
     <a href="apropos.html">À propos</a>
     <a href="info.html">Infos</a>
@@ -33,37 +93,59 @@
   </nav>
 </header>
 
-<!-- CONTENU -->
-<main class="container">
-  <section class="section">
-    <h2>Soutenir l’association</h2>
+<main class="content fade-in">
 
-    <p>
-      💙 <strong>Soutenir MIVO, c’est changer une vie.</strong><br><br>
-      Vous pouvez nous aider en faisant un don.
-      Chaque contribution, petite ou grande, a un impact réel.
-    </p>
+  <h2>Soutenir MIVO</h2>
 
-    <p>
-      Grâce à votre soutien, MIVO peut continuer à offrir un espace sûr aux jeunes victimes
-      de harcèlement, de cyberharcèlement et de détresse mentale.
-    </p>
+  <p style="font-size:18px;">
+    💙 <strong>Un don peut devenir une lumière pour quelqu’un.</strong>
+  </p>
 
-    <!-- BOUTON PAYPAL EN BAS -->
-    <div id="paypal-container-VT7KVWRRTUSRE" style="margin-top: 40px;"></div>
+  <p>
+    Votre soutien permet à MIVO de continuer à accompagner
+    les jeunes victimes de harcèlement et de détresse mentale.
+  </p>
 
-  </section>
+  <h3>Choisissez un montant :</h3>
+
+  <div class="don-buttons">
+    <a href="https://www.paypal.com/ncp/payment/39MKWSHCW4HV2" target="_blank">5 €</a>
+    <a href="https://www.paypal.com/ncp/payment/MRYBYAFAUKFF2" target="_blank">10 €</a>
+    <a href="https://www.paypal.com/ncp/payment/PHFP9YZDAG6KN" target="_blank">15 €</a>
+    <a href="https://www.paypal.com/ncp/payment/ABK7KTLM3NDP2" target="_blank">20 €</a>
+    <a href="https://www.paypal.com/ncp/payment/XMGNMCKR9EL8J" target="_blank">25 €</a>
+    <a href="https://www.paypal.com/ncp/payment/8AH33CTWAHAMY" target="_blank">30 €</a>
+    <a href="https://www.paypal.com/ncp/payment/A6SGZZTJB4D2U" target="_blank">40 €</a>
+    <a href="https://www.paypal.com/ncp/payment/LMLJERXXXN6QN" target="_blank">50 €</a>
+    <a href="https://www.paypal.com/ncp/payment/3VS4DP9K3ZYKY" target="_blank">60 €</a>
+    <a href="https://www.paypal.com/ncp/payment/JD5CMGQK4QVTS" target="_blank">70 €</a>
+    <a href="https://www.paypal.com/ncp/payment/UXDPY2HM65PPE" target="_blank">80 €</a>
+    <a href="https://www.paypal.com/ncp/payment/TSANU26JR3UYW" target="_blank">90 €</a>
+    <a href="https://www.paypal.com/ncp/payment/G9C53FDMU8RWJ" target="_blank">100 €</a>
+  </div>
+
+  <!-- Montant libre -->
+  <div class="montant-libre">
+    <h3>Ou choisissez un montant libre :</h3>
+    <input type="number" id="montant" placeholder="Montant €" min="1">
+    <button onclick="donLibre()">Donner</button>
+  </div>
+
 </main>
 
-<footer>
-  <div class="container">© 2025 - MIVO. Tous droits réservés.</div>
+<footer class="footer">
+  <p>© 2025 - MIVO. Tous droits réservés.</p>
 </footer>
 
-<!-- Script d'affichage PayPal -->
 <script>
-  paypal.HostedButtons({
-    hostedButtonId: "VT7KVWRRTUSRE",
-  }).render("#paypal-container-VT7KVWRRTUSRE")
+function donLibre() {
+  var montant = document.getElementById("montant").value;
+  if (montant > 0) {
+    window.open("https://www.paypal.com/donate?amount=" + montant + "&currency_code=EUR", "_blank");
+  } else {
+    alert("Veuillez entrer un montant valide.");
+  }
+}
 </script>
 
 </body>
