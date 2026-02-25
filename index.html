@@ -28,13 +28,20 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:20px 50px;
-  background:#000814; /* header opaque */
+  background:rgba(0,0,0,0.4); /* léger flou / transparence */
+  backdrop-filter: blur(8px); /* flou derrière le header */
   position:sticky;
   top:0;
   z-index:1000;
 }
 
 .logo{width:60px;}
+
+.header-text{
+  backdrop-filter: blur(4px); /* flou léger derrière le texte MIVO */
+  padding:5px 10px;
+  border-radius:8px;
+}
 
 .header-text h1{color:#00c6ff;}
 .header-text p{color:#a0eaff;font-size:14px;}
