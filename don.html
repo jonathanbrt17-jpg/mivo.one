@@ -2,173 +2,141 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MIVO — Faire un don</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
   <style>
     /* Fond noir avec étoiles */
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: black;
-      color: #ffffff;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
       overflow-x: hidden;
-      position: relative;
     }
-
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      z-index: -1;
+    }
     .star {
       position: absolute;
-      width: 2px;
-      height: 2px;
       background: white;
       border-radius: 50%;
-      animation: twinkle 3s infinite;
+      opacity: 0.8;
+      animation: twinkle 2s infinite;
     }
-
     @keyframes twinkle {
-      0%, 100% {opacity: 0.2;}
-      50% {opacity: 1;}
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
     }
 
     header {
       text-align: center;
-      padding: 20px;
+      padding: 20px 0;
       background: #111;
     }
+    header h1 { margin: 0; color: #00bfff; }
+    header p { margin: 5px 0; color: #ccc; }
 
-    header img {
-      width: 80px;
-      display: block;
-      margin: 0 auto 10px;
+    main { text-align: center; padding: 50px 20px; }
+
+    input[type="number"] {
+      padding: 10px;
+      width: 100px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      color: #00bfff;
-    }
-
-    header p {
-      margin: 5px 0;
-      color: #aaa;
-    }
-
-    nav a {
-      color: #ffffff;
-      margin: 0 10px;
-      text-decoration: none;
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background: #00bfff;
+      color: #000;
+      cursor: pointer;
       font-weight: bold;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #009acd;
     }
 
-    nav a.urgence {
-      color: #ff4d4d;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
-      text-align: center;
-    }
-
-    h2 {
-      color: #00bfff;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-
-    .paypal-container {
-      margin-top: 40px;
-    }
-
-    /* Compteur objectif */
     .counter {
-      margin: 30px 0;
-      font-size: 1.5em;
-      color: #ffdd00;
+      margin-top: 30px;
+      font-size: 18px;
+      color: #ffdf00;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
+      padding: 15px 0;
       background: #111;
       color: #888;
-      margin-top: 50px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
     }
   </style>
 </head>
-
 <body>
 
-<!-- Étoiles animées -->
-<script>
-  const stars = 170; // nombre d'étoiles
-  for(let i=0;i<stars;i++){
-    const star = document.createElement('div');
-    star.classList.add('star');
-    star.style.top = Math.random() * window.innerHeight + 'px';
-    star.style.left = Math.random() * window.innerWidth + 'px';
-    star.style.width = star.style.height = (Math.random()*2+1) + 'px';
-    star.style.animationDuration = (Math.random()*3+2) + 's';
-    document.body.appendChild(star);
-  }
-</script>
+<div class="stars" id="stars"></div>
 
 <header>
-  <img src="mivo.png" alt="Logo MIVO">
   <h1>MIVO</h1>
-  <p>Parler, c’est déjà guérir.</p>
-  <nav>
-    <a href="index.html">Accueil</a>
-    <a href="apropos.html">À propos</a>
-    <a href="info.html">Infos</a>
-    <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="don.html" class="urgence">Don</a>
-    <a href="urgence.html" class="urgence">⚠ Urgence</a>
-  </nav>
+  <p>💙 Soutenez notre association — Chaque don compte !</p>
 </header>
 
 <main>
-  <h2>Soutenez MIVO 💙</h2>
-  <p>
-    Chaque don aide à offrir un espace sûr, à écouter et soutenir ceux qui en ont besoin.
-    Votre contribution, petite ou grande, change vraiment des vies.
-  </p>
+  <h2>Faites un don</h2>
+  <p>Entrez le montant que vous souhaitez donner :</p>
 
-  <!-- Compteur objectif avec montants visibles -->
-  <div class="counter">
-    Objectif : <strong>999€</strong> — Collecté : <strong>0€</strong>
+  <input type="number" id="don" placeholder="€" min="1">
+  <button onclick="donPayPal()">Faire un don</button>
+
+  <div class="counter" id="counter">
+    Objectif : <span id="objectif">999</span>€ | Atteint : <span id="atteint">0</span>€
   </div>
-
-  <!-- Bouton PayPal -->
-  <div id="paypal-button-container" class="paypal-container"></div>
-
-  <p style="margin-top:20px; font-size:1.2em; color:#00bfff;">
-    Merci pour votre soutien 💙
-  </p>
 </main>
 
 <footer>
   © 2025 - MIVO. Tous droits réservés.
 </footer>
 
-<!-- PayPal SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=BAA26VKvbu73gOnc3JYsyXnHTOTX5QL7_OAjs-k5uadJjBqQjRYySUVYOueEGTgeU_HlBJExtfLpG0r2fg&currency=EUR"></script>
 <script>
-  paypal.Buttons({
-    style: {
-      layout: 'vertical',
-      color: 'blue',
-      shape: 'rect',
-      label: 'donate'
+  // Fonction pour ouvrir PayPal avec montant libre
+  function donPayPal(){
+    const montant = document.getElementById('don').value;
+    if(montant > 0){
+      // Lien PayPal avec ton Hosted Button ID
+      const url = `https://www.paypal.com/ncp/payment/YXRQ53KC9BPMN?amount=${montant}`;
+      window.open(url, '_blank');
+
+      // Mise à jour compteur (simple affichage local)
+      let atteint = parseInt(document.getElementById('atteint').innerText);
+      document.getElementById('atteint').innerText = atteint + parseInt(montant);
+    } else {
+      alert('Veuillez entrer un montant valide.');
     }
-  }).render('#paypal-button-container');
+  }
+
+  // Création aléatoire d'étoiles
+  const starsContainer = document.getElementById('stars');
+  for(let i=0; i<100; i++){
+    let star = document.createElement('div');
+    star.classList.add('star');
+    let size = Math.random()*3+1;
+    star.style.width = size+'px';
+    star.style.height = size+'px';
+    star.style.top = Math.random()*100+'%';
+    star.style.left = Math.random()*100+'%';
+    star.style.animationDuration = (Math.random()*3+1)+'s';
+    starsContainer.appendChild(star);
+  }
 </script>
 
 </body>
