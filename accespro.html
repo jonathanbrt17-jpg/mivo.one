@@ -10,27 +10,41 @@ body{
   background:#000814;
   color:white;
   font-family:Arial, sans-serif;
+  margin:0;
+  padding:20px;
+}
+
+.top-bar{
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  height:100vh;
-  flex-direction:column;
+}
+
+.back-btn{
+  background:#00c6ff;
+  border:none;
+  padding:8px 15px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.clock{
+  font-weight:bold;
+  color:#00c6ff;
 }
 
 .container{
-  width:90%;
   max-width:600px;
+  margin:40px auto;
   text-align:center;
 }
 
-textarea{
+textarea, input{
   width:100%;
-  height:200px;
-  padding:15px;
+  padding:12px;
   border-radius:10px;
   border:none;
-  margin-top:20px;
-  resize:none;
+  margin-top:15px;
 }
 
 button{
@@ -49,6 +63,11 @@ button{
 
 <body>
 
+<div class="top-bar">
+  <button class="back-btn" onclick="window.location.href='index.html'">⬅ Retour</button>
+  <div class="clock" id="clock"></div>
+</div>
+
 <div class="container" id="loginBox">
   <h2>Accès Pro</h2>
   <p>Entrez le code :</p>
@@ -57,9 +76,13 @@ button{
 </div>
 
 <div class="container hidden" id="editorBox">
-  <h2>Espace d'écriture</h2>
-  <textarea id="textArea" placeholder="Écrivez ici..."></textarea>
-  <button onclick="saveText()">Sauvegarder</button>
+  <h2>Espace Pro</h2>
+
+  <input type="email" id="recipientEmail" placeholder="Mail du destinataire">
+
+  <textarea id="textArea" placeholder="Écrivez votre message ici..."></textarea>
+
+  <button onclick="sendEmail()">Envoyer le mail</button>
 </div>
 
 <script>
@@ -70,24 +93,40 @@ function checkCode(){
   if(input === SECRET_CODE){
     document.getElementById("loginBox").classList.add("hidden");
     document.getElementById("editorBox").classList.remove("hidden");
-    loadText();
   } else {
     alert("Code incorrect");
   }
 }
 
-function saveText(){
-  const text = document.getElementById("textArea").value;
-  localStorage.setItem("mivo_pro_text", text);
-  alert("Texte sauvegardé !");
+function sendEmail(){
+  const recipient = document.getElementById("recipientEmail").value;
+  const message = document.getElementById("textArea").value;
+
+  if(!recipient || !message){
+    alert("Remplis tous les champs !");
+    return;
+  }
+
+  const subject = "Message depuis MIVO Accès Pro";
+  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+
+  window.location.href = mailtoLink;
 }
 
-function loadText(){
-  const saved = localStorage.getItem("mivo_pro_text");
-  if(saved){
-    document.getElementById("textArea").value = saved;
-  }
+/* Heure de Paris */
+function updateClock(){
+  const options = {
+    timeZone: "Europe/Paris",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  };
+  const now = new Date().toLocaleTimeString("fr-FR", options);
+  document.getElementById("clock").textContent = "Paris : " + now;
 }
+
+setInterval(updateClock, 1000);
+updateClock();
 </script>
 
 </body>
