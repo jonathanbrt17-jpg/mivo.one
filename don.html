@@ -1,78 +1,186 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supportez Horizon Cané</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
-  /* Reset */
-  * { margin:0; padding:0; box-sizing:border-box; font-family: 'Poppins', sans-serif; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIVO — Faire un don</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fond noir + étoiles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: black;
+      color: #fff;
+      overflow-x: hidden;
+    }
 
-  body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(120deg, #6a11cb, #2575fc);
-    background-size: 400% 400%;
-    animation: moveBG 15s ease infinite;
-    color: white;
-  }
+    /* étoiles animées */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
 
-  @keyframes moveBG {
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-  }
+    @keyframes twinkle {
+      0% {opacity: 0.2;}
+      50% {opacity: 0.8;}
+      100% {opacity: 0.2;}
+    }
 
-  .container {
-    background: rgba(0,0,0,0.5);
-    padding: 40px 50px;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 400px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #111;
+      border-bottom: 2px solid #444;
+    }
 
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
+    header img.logo {
+      height: 50px;
+    }
 
-  p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-  }
+    header nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-  .paypal-button {
-    display: inline-block;
-    background-color: #ffc439;
-    color: #111;
-    font-weight: 700;
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
-    font-size: 1.1rem;
-  }
+    main {
+      padding: 30px 20px;
+      text-align: center;
+    }
 
-  .paypal-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  }
-</style>
+    h1, h2 {
+      color: #00bfff;
+    }
+
+    .btn-paypal {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      background-color: #ffc439;
+      color: #111;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.3s;
+    }
+
+    .btn-paypal:hover {
+      transform: scale(1.1);
+    }
+
+    .counter {
+      font-size: 22px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #00ffcc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background: #111;
+      border-top: 2px solid #444;
+      position: relative;
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
-  <h1>Soutenez Horizon Cané</h1>
-  <p>Montant fixe : 0 € sur 800 €</p>
-  <!-- Lien PayPal vers ton compte ou bouton -->
-  <a class="paypal-button" href="https://www.paypal.com/donate?hosted_button_id=TON_ID_PAYPAL" target="_blank">
-    Payer avec PayPal
+<!-- Étoiles -->
+<script>
+  const stars = 100;
+  for(let i=0;i<stars;i++){
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.top = Math.random()*100+'%';
+    star.style.left = Math.random()*100+'%';
+    star.style.width = star.style.height = (Math.random()*2 + 1)+'px';
+    star.style.animationDuration = (Math.random()*3 + 2)+'s';
+    document.body.appendChild(star);
+  }
+</script>
+
+<header>
+  <img src="mivo.png" alt="Logo MIVO" class="logo">
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="apropos.html">À propos</a>
+    <a href="info.html">Infos</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+    <a href="don.html">Don</a>
+    <a href="urgence.html" class="urgence">⚠️ Urgence</a>
+  </nav>
+</header>
+
+<main>
+  <h1>💙 Soutenir MIVO 💙</h1>
+  <h2>Chaque don compte !</h2>
+  <p>
+    Grâce à votre soutien, nous pouvons aider les jeunes victimes de harcèlement et de détresse mentale.
+    Chaque contribution change une vie.  
+    Choisissez un montant ou donnez librement !
+  </p>
+
+  <!-- Compteur d'objectif -->
+  <div class="counter" id="counter">
+    Objectif : 800€ — Collecté : 0€
+  </div>
+
+  <!-- Montant libre -->
+  <label for="donAmount">Montant (€) :</label>
+  <input type="number" id="donAmount" placeholder="Ex : 10" min="1" style="padding:8px; width:100px; font-size:16px; margin-top:10px;">
+
+  <br>
+
+  <!-- Bouton PayPal -->
+  <a id="paypalButton" class="btn-paypal" target="_blank">
+    Faire un don via PayPal
   </a>
-</div>
+
+</main>
+
+<footer>
+  © 2025 - MIVO. Tous droits réservés.
+</footer>
+
+<script>
+  // Lien PayPal avec montant dynamique
+  const paypalButton = document.getElementById('paypalButton');
+  const input = document.getElementById('donAmount');
+  const counter = document.getElementById('counter');
+
+  const objectif = 800; // montant à atteindre
+  let collecté = 0;
+
+  function updateCounter() {
+    counter.textContent = `Objectif : ${objectif}€ — Collecté : ${collecté}€`;
+  }
+
+  updateCounter();
+
+  input.addEventListener('input', () => {
+    const montant = parseFloat(input.value) || 0;
+    // Modifier le lien PayPal avec montant
+    paypalButton.href = `https://www.paypal.com/ncp/payment/YXRQ53KC9BPMN?amount=${montant}`;
+    // Mettre à jour le compteur temporaire
+    collecté = montant;
+    updateCounter();
+  });
+</script>
 
 </body>
 </html>
