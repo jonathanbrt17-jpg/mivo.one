@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIVO — Accès Pro</title>
+
+<style>
+body{
+  background:#000814;
+  color:white;
+  font-family:Arial, sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  flex-direction:column;
+}
+
+.container{
+  width:90%;
+  max-width:600px;
+  text-align:center;
+}
+
+textarea{
+  width:100%;
+  height:200px;
+  padding:15px;
+  border-radius:10px;
+  border:none;
+  margin-top:20px;
+  resize:none;
+}
+
+button{
+  margin-top:15px;
+  padding:10px 20px;
+  border:none;
+  border-radius:10px;
+  background:#00c6ff;
+  color:white;
+  cursor:pointer;
+}
+
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="loginBox">
+  <h2>Accès Pro</h2>
+  <p>Entrez le code :</p>
+  <input type="password" id="codeInput">
+  <button onclick="checkCode()">Entrer</button>
+</div>
+
+<div class="container hidden" id="editorBox">
+  <h2>Espace d'écriture</h2>
+  <textarea id="textArea" placeholder="Écrivez ici..."></textarea>
+  <button onclick="saveText()">Sauvegarder</button>
+</div>
+
+<script>
+const SECRET_CODE = "MIVO2025";
+
+function checkCode(){
+  const input = document.getElementById("codeInput").value;
+  if(input === SECRET_CODE){
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("editorBox").classList.remove("hidden");
+    loadText();
+  } else {
+    alert("Code incorrect");
+  }
+}
+
+function saveText(){
+  const text = document.getElementById("textArea").value;
+  localStorage.setItem("mivo_pro_text", text);
+  alert("Texte sauvegardé !");
+}
+
+function loadText(){
+  const saved = localStorage.getItem("mivo_pro_text");
+  if(saved){
+    document.getElementById("textArea").value = saved;
+  }
+}
+</script>
+
+</body>
+</html>
