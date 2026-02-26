@@ -9,7 +9,7 @@
 body{
   background:#000814;
   color:white;
-  font-family:'Poppins', sans-serif;
+  font-family:Arial, sans-serif;
   margin:0;
   padding:20px;
 }
@@ -37,7 +37,13 @@ body{
 .container{
   max-width:800px;
   margin:40px auto;
-  text-align:center;
+}
+
+label{
+  display:block;
+  margin-top:20px;
+  font-weight:bold;
+  color:#00c6ff;
 }
 
 input, textarea{
@@ -45,7 +51,7 @@ input, textarea{
   padding:12px;
   border-radius:10px;
   border:none;
-  margin-top:15px;
+  margin-top:8px;
   font-size:16px;
 }
 
@@ -55,8 +61,8 @@ textarea{
 }
 
 button{
-  margin-top:15px;
-  padding:10px 20px;
+  margin-top:20px;
+  padding:12px 25px;
   border:none;
   border-radius:10px;
   background:#00c6ff;
@@ -84,13 +90,23 @@ button{
 </div>
 
 <div class="container hidden" id="editorBox">
-  <h2>📝 Espace Pro</h2>
 
-  <input type="email" id="recipientEmail" placeholder="Mail du destinataire">
+  <h2>📧 Envoi de message</h2>
 
-  <textarea id="textArea" placeholder="Écrivez votre message ici..."></textarea>
+  <!-- TON MAIL FIXE -->
+  <label>📨 Mail expéditeur (MIVO)</label>
+  <input type="text" value="mivoasso@proto.me" disabled>
 
-  <button onclick="sendEmail()">📧 Envoyer le mail</button>
+  <!-- MAIL DESTINATAIRE -->
+  <label>👤 Mail du destinataire</label>
+  <input type="email" id="recipientEmail" placeholder="exemple@gmail.com">
+
+  <!-- MESSAGE -->
+  <label>📝 Ton message</label>
+  <textarea id="messageArea" placeholder="Écris ton message ici..."></textarea>
+
+  <button onclick="sendEmail()">Envoyer le mail</button>
+
 </div>
 
 <script>
@@ -101,40 +117,24 @@ function checkCode(){
   if(input === SECRET_CODE){
     document.getElementById("loginBox").classList.add("hidden");
     document.getElementById("editorBox").classList.remove("hidden");
-    loadText();
   } else {
     alert("Code incorrect");
   }
 }
 
-/* Sauvegarde automatique */
-const textarea = document.getElementById("textArea");
-
-function saveText(){
-  localStorage.setItem("mivo_pro_text", textarea.value);
-}
-
-function loadText(){
-  const saved = localStorage.getItem("mivo_pro_text");
-  if(saved){
-    textarea.value = saved;
-  }
-}
-
-textarea.addEventListener("input", saveText);
-
-/* Envoi mail */
 function sendEmail(){
   const recipient = document.getElementById("recipientEmail").value;
-  const message = textarea.value;
+  const message = document.getElementById("messageArea").value;
 
   if(!recipient || !message){
     alert("Remplis tous les champs !");
     return;
   }
 
-  const subject = "Message depuis MIVO Accès Pro";
-  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  const subject = "Message officiel MIVO";
+  const body = "Expéditeur : mivoasso@proto.me\n\n" + message;
+
+  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   window.location.href = mailtoLink;
 }
 
