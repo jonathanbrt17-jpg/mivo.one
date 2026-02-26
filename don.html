@@ -167,9 +167,9 @@
   updateCounter();
 
   input.addEventListener('input', () => {
-    const montant = parseFloat(input.value) || 0;
+    const montant = parseFloat(input.value) || 0; 
     // Modifier le lien PayPal avec montant
-    paypalButton.href = `https://www.paypal.com/ncp/payment/YXRQ53KC9BPMN?amount=${montant}`;
+    paypalButton.href = `https://www.paypal.com/ncp/payment/WWBNTG922KFP6?amount=${montant}`;
     // Mettre à jour le compteur temporaire
     collecté = montant;
     updateCounter();
