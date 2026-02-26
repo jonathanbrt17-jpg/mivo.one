@@ -65,10 +65,10 @@
       display: inline-block;
       margin-top: 20px;
       padding: 15px 30px;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: bold;
-      background-color: #ffc439;
-      color: #111;
+      background-color: #ff3366;
+      color: #fff;
       border: none;
       border-radius: 8px;
       cursor: pointer;
@@ -78,6 +78,7 @@
 
     .btn-paypal:hover {
       transform: scale(1.1);
+      background-color: #ff6699;
     }
 
     .counter {
@@ -130,9 +131,8 @@
   <h1>💙 Soutenir MIVO 💙</h1>
   <h2>Chaque don compte !</h2>
   <p>
-    Grâce à votre soutien, nous pouvons aider les jeunes et les moin jeunes victimes de harcèlement et de détresse mentale.
-    Chaque contribution change une vie.  
-    donnez un montant librement !
+    Grâce à votre soutien, nous pouvons aider les jeunes et les moins jeunes victimes de harcèlement et de détresse mentale.
+    Chaque contribution change une vie.
   </p>
 
   <!-- Compteur d'objectif -->
@@ -141,8 +141,8 @@
   </div>
 
   <!-- Bouton PayPal -->
-  <a id="paypalButton" class="btn-paypal" target="_blank">
-    Faire un don via PayPal
+  <a id="paypalButton" class="btn-paypal" href="https://www.paypal.com/ncp/payment/WWBNTG922KFP6?amount=0" target="_blank">
+    💖 Faire un don !
   </a>
 
 </main>
@@ -152,12 +152,8 @@
 </footer>
 
 <script>
-  // Lien PayPal avec montant dynamique
-  const paypalButton = document.getElementById('paypalButton');
-  const input = document.getElementById('donAmount');
   const counter = document.getElementById('counter');
-
-  const objectif = 800; // montant à atteindre
+  const objectif = 800;
   let collecté = 0;
 
   function updateCounter() {
@@ -165,16 +161,7 @@
   }
 
   updateCounter();
-
-  input.addEventListener('input', () => {
-    const montant = parseFloat(input.value) || 0;
-    // Modifier le lien PayPal avec montant
-    paypalButton.href = `https://www.paypal.com/ncp/payment/WWBNTG922KFP6?amount=${montant}`;
-    // Mettre à jour le compteur temporaire
-    collecté = montant;
-    updateCounter();
-  });
 </script>
 
 </body>
-</html> 
+</html>
