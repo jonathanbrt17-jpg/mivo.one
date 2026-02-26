@@ -22,8 +22,8 @@
       height: 2px;
       background: white;
       border-radius: 50%;
-      opacity: 0.9;
-      animation: twinkle 4s infinite alternate;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
     }
 
     @keyframes twinkle {
@@ -101,14 +101,14 @@
 
 <!-- Étoiles -->
 <script>
-  const stars = 300;
+  const stars = 100;
   for(let i=0;i<stars;i++){
     const star = document.createElement('div');
     star.className = 'star';
-    star.style.top = Math.random()*200+'%';
-    star.style.left = Math.random()*200+'%';
-    star.style.width = star.style.height = (Math.random()*3 + 2)+'px';
-    star.style.animationDuration = (Math.random()*4 + 3)+'s';
+    star.style.top = Math.random()*100+'%';
+    star.style.left = Math.random()*100+'%';
+    star.style.width = star.style.height = (Math.random()*2 + 1)+'px';
+    star.style.animationDuration = (Math.random()*3 + 2)+'s';
     document.body.appendChild(star);
   }
 </script>
