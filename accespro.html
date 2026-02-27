@@ -5,153 +5,171 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIVO — Accès Pro</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 body{
-  background:#000814;
-  color:white;
-  font-family:Arial, sans-serif;
   margin:0;
-  padding:20px;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#000814,#001d3d);
+  color:white;
+  text-align:center;
 }
 
-.top-bar{
+.topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  padding:15px 25px;
 }
 
-.back-btn{
-  background:#00c6ff;
-  border:none;
+.back{
+  background:#0077ff;
   padding:8px 15px;
-  border-radius:8px;
+  border-radius:10px;
   cursor:pointer;
-  font-weight:bold;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
 }
 
 .clock{
-  font-weight:bold;
-  color:#00c6ff;
+  font-weight:600;
 }
 
 .container{
-  max-width:800px;
-  margin:40px auto;
-}
-
-label{
-  display:block;
-  margin-top:20px;
-  font-weight:bold;
-  color:#00c6ff;
+  margin-top:40px;
 }
 
 input, textarea{
-  width:100%;
+  width:80%;
+  max-width:600px;
   padding:12px;
+  margin:10px;
   border-radius:10px;
   border:none;
-  margin-top:8px;
   font-size:16px;
+}
+
+button{
+  padding:12px 25px;
+  margin:10px;
+  border:none;
+  border-radius:12px;
+  background:#0077ff;
+  color:white;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.hidden{
+  display:none;
 }
 
 textarea{
   height:250px;
-  resize:none;
+  font-family:'Great Vibes',cursive;
+  font-size:22px;
 }
-
-button{
-  margin-top:20px;
-  padding:12px 25px;
-  border:none;
-  border-radius:10px;
-  background:#00c6ff;
-  color:white;
-  cursor:pointer;
-  font-weight:bold;
-}
-
-.hidden{display:none;}
 </style>
 </head>
 
 <body>
 
-<div class="top-bar">
-  <button class="back-btn" onclick="window.location.href='index.html'">⬅ Retour</button>
+<div class="topbar">
+  <a href="index.html" class="back">⬅ Retour</a>
   <div class="clock" id="clock"></div>
 </div>
 
-<div class="container" id="loginBox">
-  <h2>🔐 Accès Pro</h2>
-  <p>Entrez le code :</p>
-  <input type="password" id="codeInput">
-  <button onclick="checkCode()">Entrer</button>
+<div id="login" class="container">
+  <h2>🔐 Accès Protégé</h2>
+  <input type="password" id="password" placeholder="Mot de passe">
+  <br>
+  <button onclick="checkPassword()">Entrer</button>
 </div>
 
-<div class="container hidden" id="editorBox">
+<div id="menu" class="container hidden">
+  <h2>📂 Menu Pro</h2>
+  <button onclick="openMail()">📧 Mail</button>
+  <button onclick="openNotes()">📝 Notes</button>
+</div>
 
-  <h2>📧 Envoi de message</h2>
+<div id="mailSection" class="container hidden">
+  <h2>📧 Envoyer un Mail</h2>
+  <input type="email" id="toMail" placeholder="Mail du destinataire">
+  <br>
+  <input type="text" id="subjectMail" placeholder="Sujet">
+  <br>
+  <textarea id="messageMail" placeholder="Écris ton message ici..."></textarea>
+  <br>
+  <button onclick="sendMail()">Envoyer</button>
+  <button onclick="backMenu()">🔙 Retour</button>
+</div>
 
-  <!-- TON MAIL FIXE -->
-  <label>📨 Mail expéditeur (MIVO)</label>
-  <input type="text" value="mivoasso@proto.me" disabled>
-
-  <!-- MAIL DESTINATAIRE -->
-  <label>👤 Mail du destinataire</label>
-  <input type="email" id="recipientEmail" placeholder="exemple@gmail.com">
-
-  <!-- MESSAGE -->
-  <label>📝 Ton message</label>
-  <textarea id="messageArea" placeholder="Écris ton message ici..."></textarea>
-
-  <button onclick="sendEmail()">Envoyer le mail</button>
-
+<div id="notesSection" class="container hidden">
+  <h2>📝 Notes Personnelles</h2>
+  <textarea id="notes" placeholder="Écris tes notes ici..."></textarea>
+  <br>
+  <button onclick="saveNotes()">💾 Sauvegarder</button>
+  <button onclick="backMenu()">🔙 Retour</button>
 </div>
 
 <script>
-const SECRET_CODE = "MIVO2025";
 
-function checkCode(){
-  const input = document.getElementById("codeInput").value;
-  if(input === SECRET_CODE){
-    document.getElementById("loginBox").classList.add("hidden");
-    document.getElementById("editorBox").classList.remove("hidden");
+// 🔐 MOT DE PASSE (tu peux le changer)
+function checkPassword(){
+  if(document.getElementById("password").value === "MIVO2026"){
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("menu").classList.remove("hidden");
   } else {
-    alert("Code incorrect");
+    alert("Mot de passe incorrect");
   }
 }
 
-function sendEmail(){
-  const recipient = document.getElementById("recipientEmail").value;
-  const message = document.getElementById("messageArea").value;
+// 📧 MAIL (ouvre application mail)
+function sendMail(){
+  let to = document.getElementById("toMail").value;
+  let subject = document.getElementById("subjectMail").value;
+  let message = document.getElementById("messageMail").value;
 
-  if(!recipient || !message){
-    alert("Remplis tous les champs !");
-    return;
-  }
-
-  const subject = "Message officiel MIVO";
-  const body = "Expéditeur : mivoasso@proto.me\n\n" + message;
-
-  const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = mailtoLink;
+  window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }
 
-/* Heure Paris */
+// 📝 NOTES sauvegarde locale
+function saveNotes(){
+  localStorage.setItem("mivoNotes", document.getElementById("notes").value);
+  alert("Notes sauvegardées !");
+}
+
+window.onload = function(){
+  document.getElementById("notes").value = localStorage.getItem("mivoNotes") || "";
+}
+
+// 📂 Navigation
+function openMail(){
+  document.getElementById("menu").classList.add("hidden");
+  document.getElementById("mailSection").classList.remove("hidden");
+}
+
+function openNotes(){
+  document.getElementById("menu").classList.add("hidden");
+  document.getElementById("notesSection").classList.remove("hidden");
+}
+
+function backMenu(){
+  document.getElementById("mailSection").classList.add("hidden");
+  document.getElementById("notesSection").classList.add("hidden");
+  document.getElementById("menu").classList.remove("hidden");
+}
+
+// 🕒 Heure Paris
 function updateClock(){
-  const options = {
-    timeZone: "Europe/Paris",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit"
-  };
-  const now = new Date().toLocaleTimeString("fr-FR", options);
-  document.getElementById("clock").textContent = "Paris : " + now;
+  const now = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
+  document.getElementById("clock").textContent = "Heure Paris : " + now;
 }
-
-setInterval(updateClock, 1000);
+setInterval(updateClock,1000);
 updateClock();
+
 </script>
 
 </body>
