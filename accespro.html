@@ -11,9 +11,35 @@
 body{
   margin:0;
   font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#000814,#001d3d);
   color:white;
   text-align:center;
+  overflow:hidden;
+  background:black;
+}
+
+/* 🌟 Arrière-plan étoiles */
+#stars {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  background:#000;
+  overflow:hidden;
+}
+.star {
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  animation: moveStar linear infinite;
+}
+
+@keyframes moveStar {
+  0% {transform: translateY(0) translateX(0);}
+  100% {transform: translateY(1000px) translateX(500px);}
 }
 
 .topbar{
@@ -21,6 +47,8 @@ body{
   justify-content:space-between;
   align-items:center;
   padding:15px 25px;
+  z-index:1;
+  position:relative;
 }
 
 .back{
@@ -39,6 +67,8 @@ body{
 
 .container{
   margin-top:40px;
+  z-index:1;
+  position:relative;
 }
 
 input, textarea{
@@ -76,6 +106,9 @@ textarea.journalStyle{
 
 <body>
 
+<!-- 🌌 Étoiles -->
+<div id="stars"></div>
+
 <div class="topbar">
   <a href="index.html" class="back">⬅ Retour</a>
   <div class="clock" id="clock"></div>
@@ -89,12 +122,16 @@ textarea.journalStyle{
   <button onclick="checkPassword()">Entrer</button>
 </div>
 
-<!-- MENU -->
+<!-- MENU PRO -->
 <div id="menu" class="container hidden">
   <h2>📂 Menu Pro</h2>
-  <button onclick="openMail()">📧 Mail</button>
-  <button onclick="openNotes()">📝 Notes</button>
-  <button onclick="openJournal()">📖 Journal</button>
+  <div style="display:flex; justify-content:center; gap:20px; margin-bottom:40px;">
+    <button onclick="openMail()">📧 Mail</button>
+    <button onclick="openNotes()">📝 Notes</button>
+  </div>
+  <div style="display:flex; justify-content:center;">
+    <button onclick="openJournal()">📖 Journal</button>
+  </div>
 </div>
 
 <!-- MAIL -->
@@ -129,7 +166,6 @@ textarea.journalStyle{
 </div>
 
 <script>
-
 // 🔐 MOT DE PASSE
 function checkPassword(){
   if(document.getElementById("password").value === "zaza3110"){
@@ -164,6 +200,18 @@ function saveJournal(){
 window.onload = function(){
   document.getElementById("notes").value = localStorage.getItem("mivoNotes") || "";
   document.getElementById("journal").value = localStorage.getItem("mivoJournal") || "";
+
+  // 🌟 Générer 100 étoiles aléatoires
+  const starsContainer = document.getElementById("stars");
+  for(let i=0;i<100;i++){
+    const star = document.createElement("div");
+    star.className="star";
+    star.style.top = Math.random()*100+"%";
+    star.style.left = Math.random()*100+"%";
+    star.style.width = star.style.height = (Math.random()*2+1)+"px";
+    star.style.animationDuration = (Math.random()*10+5)+"s";
+    starsContainer.appendChild(star);
+  }
 }
 
 // 📂 Navigation
@@ -193,7 +241,6 @@ function updateClock(){
 }
 setInterval(updateClock,1000);
 updateClock();
-
 </script>
 
 </body>
