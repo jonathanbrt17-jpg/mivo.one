@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIVO — Accès Pro</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
-
 <style>
 body{
   margin:0;
@@ -16,14 +14,10 @@ body{
   overflow:hidden;
   background:black;
 }
-
-/* 🌟 Arrière-plan étoiles */
 #stars {
   position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
+  top:0; left:0;
+  width:100%; height:100%;
   z-index:-1;
   background:#000;
   overflow:hidden;
@@ -40,16 +34,13 @@ body{
   0% {transform: translateY(0) translateX(0);}
   100% {transform: translateY(1000px) translateX(500px);}
 }
-
 .topbar{
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 25px;
-  z-index:1;
-  position:relative;
+  z-index:1; position:relative;
 }
-
 .back{
   background:#0077ff;
   padding:8px 15px;
@@ -59,55 +50,22 @@ body{
   color:white;
   font-weight:600;
 }
-
-.clock{
-  font-weight:600;
-}
-
-.container{
-  margin-top:40px;
-  z-index:1;
-  position:relative;
-}
-
+.clock{ font-weight:600; }
+.container{ margin-top:40px; z-index:1; position:relative; }
 input, textarea{
-  width:80%;
-  max-width:600px;
-  padding:12px;
-  margin:10px;
-  border-radius:10px;
-  border:none;
-  font-size:16px;
+  width:80%; max-width:600px; padding:12px; margin:10px;
+  border-radius:10px; border:none; font-size:16px;
 }
-
 button{
-  padding:12px 25px;
-  margin:10px;
-  border:none;
-  border-radius:12px;
-  background:#0077ff;
-  color:white;
-  font-weight:600;
-  cursor:pointer;
+  padding:12px 25px; margin:10px; border:none; border-radius:12px;
+  background:#0077ff; color:white; font-weight:600; cursor:pointer;
 }
-
-.hidden{
-  display:none;
-}
-
-textarea.journalStyle{
-  height:250px;
-  font-family:'Great Vibes',cursive;
-  font-size:22px;
-}
+.hidden{ display:none; }
+textarea.journalStyle{ height:250px; font-family:'Great Vibes',cursive; font-size:22px; }
 </style>
 </head>
-
 <body>
-
-<!-- 🌌 Étoiles -->
 <div id="stars"></div>
-
 <div class="topbar">
   <a href="index.html" class="back">⬅ Retour</a>
   <div class="clock" id="clock"></div>
@@ -116,20 +74,17 @@ textarea.journalStyle{
 <!-- LOGIN -->
 <div id="login" class="container">
   <h2>🔐 Accès Protégé</h2>
-  <input type="password" id="password" placeholder="Mot de passe">
-  <br>
+  <input type="password" id="password" placeholder="Mot de passe"><br>
   <button onclick="checkPassword()">Entrer</button>
 </div>
 
 <!-- MENU PRO -->
 <div id="menu" class="container hidden">
   <h2>📂 Menu Pro</h2>
-  <!-- Boutons du haut -->
   <div style="display:flex; justify-content:center; gap:20px; margin-bottom:40px;">
     <button onclick="openMail()">📧 Mail</button>
     <button onclick="openNotes()">📝 Notes</button>
   </div>
-  <!-- Bouton du bas -->
   <div style="display:flex; justify-content:center;">
     <button onclick="openJournal()">📖 Journal</button>
   </div>
@@ -138,12 +93,9 @@ textarea.journalStyle{
 <!-- MAIL -->
 <div id="mailSection" class="container hidden">
   <h2>📧 Envoyer un Mail</h2>
-  <input type="email" id="toMail" placeholder="Mail du destinataire">
-  <br>
-  <input type="text" id="subjectMail" placeholder="Sujet">
-  <br>
-  <textarea id="messageMail" placeholder="Écris ton message ici..."></textarea>
-  <br>
+  <input type="email" id="toMail" placeholder="Mail du destinataire"><br>
+  <input type="text" id="subjectMail" placeholder="Sujet"><br>
+  <textarea id="messageMail" placeholder="Écris ton message ici..."></textarea><br>
   <button onclick="sendMail()">Envoyer</button>
   <button onclick="backMenu()">🔙 Retour</button>
 </div>
@@ -151,8 +103,7 @@ textarea.journalStyle{
 <!-- NOTES -->
 <div id="notesSection" class="container hidden">
   <h2>📝 Notes Personnelles</h2>
-  <textarea id="notes" placeholder="Écris tes notes ici..."></textarea>
-  <br>
+  <textarea id="notes" placeholder="Écris tes notes ici..."></textarea><br>
   <button onclick="saveNotes()">💾 Sauvegarder</button>
   <button onclick="backMenu()">🔙 Retour</button>
 </div>
@@ -160,87 +111,67 @@ textarea.journalStyle{
 <!-- JOURNAL -->
 <div id="journalSection" class="container hidden">
   <h2>📖 Journal Intime</h2>
-  <textarea id="journal" class="journalStyle" placeholder="Écris ce que tu ressens ici... Mivo t'écoute."></textarea>
-  <br>
+  <textarea id="journal" class="journalStyle" placeholder="Écris ce que tu ressens ici... Mivo t'écoute."></textarea><br>
   <button onclick="saveJournal()">💾 Sauvegarder</button>
   <button onclick="backMenu()">🔙 Retour</button>
 </div>
 
 <script>
-// 🔐 MOT DE PASSE
+// MOT DE PASSE
 function checkPassword(){
   if(document.getElementById("password").value === "zaza3110"){
     document.getElementById("login").classList.add("hidden");
     document.getElementById("menu").classList.remove("hidden");
-  } else {
-    alert("Mot de passe incorrect");
-  }
+  } else { alert("Mot de passe incorrect"); }
 }
-
-// 📧 MAIL
+// MAIL
 function sendMail(){
-  let to = document.getElementById("toMail").value;
-  let subject = document.getElementById("subjectMail").value;
-  let message = document.getElementById("messageMail").value;
-  window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+  let to=document.getElementById("toMail").value;
+  let subject=document.getElementById("subjectMail").value;
+  let message=document.getElementById("messageMail").value;
+  window.location.href=`mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }
-
-// 📝 NOTES
+// NOTES
 function saveNotes(){
   localStorage.setItem("mivoNotes", document.getElementById("notes").value);
   alert("Notes sauvegardées !");
 }
-
-// 📖 JOURNAL
+// JOURNAL
 function saveJournal(){
   localStorage.setItem("mivoJournal", document.getElementById("journal").value);
   alert("Journal sauvegardé !");
 }
-
-// LOAD LOCALSTORAGE + Générer étoiles
+// LOAD LOCALSTORAGE + étoiles
 window.onload = function(){
-  document.getElementById("notes").value = localStorage.getItem("mivoNotes") || "";
-  document.getElementById("journal").value = localStorage.getItem("mivoJournal") || "";
-
-  const starsContainer = document.getElementById("stars");
+  document.getElementById("notes").value=localStorage.getItem("mivoNotes")||"";
+  document.getElementById("journal").value=localStorage.getItem("mivoJournal")||"";
+  const starsContainer=document.getElementById("stars");
   for(let i=0;i<100;i++){
-    const star = document.createElement("div");
+    const star=document.createElement("div");
     star.className="star";
-    star.style.top = Math.random()*100+"%";
-    star.style.left = Math.random()*100+"%";
-    star.style.width = star.style.height = (Math.random()*2+1)+"px";
-    star.style.animationDuration = (Math.random()*10+5)+"s";
+    star.style.top=Math.random()*100+"%";
+    star.style.left=Math.random()*100+"%";
+    star.style.width=star.style.height=(Math.random()*2+1)+"px";
+    star.style.animationDuration=(Math.random()*10+5)+"s";
     starsContainer.appendChild(star);
   }
 }
-
-// 📂 Navigation
-function openMail(){
-  document.getElementById("menu").classList.add("hidden");
-  document.getElementById("mailSection").classList.remove("hidden");
-}
-function openNotes(){
-  document.getElementById("menu").classList.add("hidden");
-  document.getElementById("notesSection").classList.remove("hidden");
-}
-function openJournal(){
-  document.getElementById("menu").classList.add("hidden");
-  document.getElementById("journalSection").classList.remove("hidden");
-}
+// Navigation
+function openMail(){ document.getElementById("menu").classList.add("hidden"); document.getElementById("mailSection").classList.remove("hidden"); }
+function openNotes(){ document.getElementById("menu").classList.add("hidden"); document.getElementById("notesSection").classList.remove("hidden"); }
+function openJournal(){ document.getElementById("menu").classList.add("hidden"); document.getElementById("journalSection").classList.remove("hidden"); }
 function backMenu(){
   document.getElementById("mailSection").classList.add("hidden");
   document.getElementById("notesSection").classList.add("hidden");
   document.getElementById("journalSection").classList.add("hidden");
   document.getElementById("menu").classList.remove("hidden");
 }
-
-// 🕒 Heure Paris
+// Horloge Paris
 function updateClock(){
-  const now = new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" });
-  document.getElementById("clock").textContent = "Heure Paris : " + now;
+  const now=new Date().toLocaleString("fr-FR",{timeZone:"Europe/Paris"});
+  document.getElementById("clock").textContent="Heure Paris : "+now;
 }
-setInterval(updateClock,1000);
-updateClock();
+setInterval(updateClock,1000); updateClock();
 </script>
 
 </body>
