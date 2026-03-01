@@ -145,7 +145,6 @@ function sendMail(){
   let to = document.getElementById("toMail").value;
   let subject = document.getElementById("subjectMail").value;
   let message = document.getElementById("messageMail").value;
-
   window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
 }
 
@@ -161,6 +160,7 @@ function saveJournal(){
   alert("Journal sauvegardé !");
 }
 
+// LOAD LOCALSTORAGE
 window.onload = function(){
   document.getElementById("notes").value = localStorage.getItem("mivoNotes") || "";
   document.getElementById("journal").value = localStorage.getItem("mivoJournal") || "";
@@ -171,17 +171,14 @@ function openMail(){
   document.getElementById("menu").classList.add("hidden");
   document.getElementById("mailSection").classList.remove("hidden");
 }
-
 function openNotes(){
   document.getElementById("menu").classList.add("hidden");
   document.getElementById("notesSection").classList.remove("hidden");
 }
-
 function openJournal(){
   document.getElementById("menu").classList.add("hidden");
   document.getElementById("journalSection").classList.remove("hidden");
 }
-
 function backMenu(){
   document.getElementById("mailSection").classList.add("hidden");
   document.getElementById("notesSection").classList.add("hidden");
